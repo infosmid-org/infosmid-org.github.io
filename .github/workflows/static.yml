@@ -31,12 +31,14 @@ jobs:
     steps:
       - name: Checkout
         uses: actions/checkout@v4
+        with:
+          path: '.'
       - name: Copy Artefacts
         shell: bash
         run: |
-          mkdir -p "./pages/images"
-          cp "./CNAME" "./pages/"
-          cp "./brand/*" "./pages/images/"
+          mkdir -p "${{github.workspace}}/pages/images"
+          cp "${{github.workspace}}/CNAME" "${{github.workspace}}/pages/"
+          cp "${{github.workspace}}/brand/*" "${{github.workspace}}/pages/images/"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
