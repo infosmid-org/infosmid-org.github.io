@@ -35,8 +35,21 @@ jobs:
         shell: bash
         run: |          
           CNAME_FILE=$(find . -name "CNAME" -type f)
+          if [ ! -f $CNAME_FILE ]; then
+            echo "Cannot find CNAME"
+            exit 2
+          fi
           PAGES_DIR=$(find . -name "pages" -type d)
+          if [ ! -d "$PAGES_DIR" ]; then
+            echo "Cannot find pages"
+            exit 2
+          fi          
           BRAND_DIR=$(find . -name "brand" -type d)
+          if [ ! -d "$BRAND_DIR" ]; then
+            echo "Cannot find brand"
+            exit 2
+          fi
+          echo "CNAME=$CNAME_FILE, pages=$PAGES_DIR, brand=$BRAND_DIR"          
           mkdir -p "$PAGES_DIR/images"
           cp "$CNAME_FILE" "$PAGES_DIR"
           cp "$BRAND_DIR/*" "$PAGES_DIR/images/"
