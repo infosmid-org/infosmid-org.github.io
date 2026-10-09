@@ -34,6 +34,7 @@ jobs:
       - name: Copy Artefacts
         shell: bash
         run: |
+          echo "PWD:$(pwd)"
           mkdir -p "${{github.workspace}}/pages/images"
           cp "${{github.workspace}}/CNAME" "${{github.workspace}}/pages/"
           cp "${{github.workspace}}/brand/*" "${{github.workspace}}/pages/images/"
