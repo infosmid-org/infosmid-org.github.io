@@ -32,10 +32,11 @@ jobs:
       - name: Checkout
         uses: actions/checkout@v4
       - name: Copy Artefacts
+        shell: bash
         run: |
-          mkdir -p "${{github.workspace}}/pages/images"
-          cp "${{github.workspace}}/CNAME" "${{github.workspace}}/pages/"
-          cp "${{github.workspace}}/brand/*" "${{github.workspace}}/pages/images/"
+          mkdir -p "./pages/images"
+          cp "./CNAME" "./pages/"
+          cp "./brand/*" "./pages/images/"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
