@@ -52,7 +52,7 @@ jobs:
           echo "CNAME=$CNAME_FILE, pages=$PAGES_DIR, brand=$BRAND_DIR"          
           mkdir -p "$PAGES_DIR/images"
           cp "$CNAME_FILE" "$PAGES_DIR"
-          cp "$BRAND_DIR/*" "$PAGES_DIR/images/"
+          cp "$BRAND_DIR"/* "$PAGES_DIR/images/"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
