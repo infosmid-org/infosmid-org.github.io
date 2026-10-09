@@ -30,14 +30,16 @@ jobs:
     runs-on: ubuntu-latest
     steps:
       - name: Checkout
-        uses: actions/checkout@v4
+        uses: actions/checkout@v7
       - name: Copy Artefacts
         shell: bash
-        run: |
-          echo "PWD:$(pwd)"
-          mkdir -p "${{github.workspace}}/pages/images"
-          cp "${{github.workspace}}/CNAME" "${{github.workspace}}/pages/"
-          cp "${{github.workspace}}/brand/*" "${{github.workspace}}/pages/images/"
+        run: |          
+          CNAME_FILE=$(find . -name "CNAME" -type f)
+          PAGES_DIR=$(find . -name "pages" -type d)
+          BRAND_DIR=$(find . -name "brand" -type d)
+          mkdir -p "$PAGES_DIR/images"
+          cp "$CNAME_FILE" "$PAGES_DIR"
+          cp "$BRAND_DIR/*" "$PAGES_DIR/images/"
       - name: Setup Pages
         uses: actions/configure-pages@v5
       - name: Upload artifact
