@@ -1,0 +1,18 @@
+{
+    "name": "kfsm-viz",
+    "group": "org.infosmid",
+    "version": "2.0.1",
+    "title": "KFSM Visualization",
+    "summary": "Visualization library for KFSM finite state-machine definitions",
+    "license": "Apache-2.0",
+    "tags": [
+        "Kotlin",
+        "FSM",
+        "PlantUML",
+        "Asciidoc",
+        "Mermaid"
+    ],
+    "sourceUrl": "https://github.com/infosmid-org/kfsm-viz",
+    "guide": "index.html",
+    "api": "api/index.html"
+}

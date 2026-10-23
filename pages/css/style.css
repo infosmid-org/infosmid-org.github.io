@@ -189,14 +189,6 @@ body {
   display: block;
 }
 
-/* Theme-adaptive brand logo display */
-.brand-logo-dark {
-  display: none !important;
-}
-
-.brand-logo-light {
-  display: block;
-}
 
 @media (prefers-color-scheme: dark) {
   :root:not([data-theme="light"]) .brand-logo-light {
@@ -475,7 +467,8 @@ body {
 /* Projects Cards */
 .projects-grid {
   display: grid;
-  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  /* At most 2 columns; collapses to 1 when a column would be narrower than 320px */
+  grid-template-columns: repeat(auto-fit, minmax(max(320px, calc((100% - 1.75rem) / 2)), 1fr));
   gap: 1.75rem;
 }
 
@@ -554,7 +547,8 @@ body {
   border-top: 1px solid var(--color-border-subtle);
   display: flex;
   align-items: center;
-  justify-content: space-between;
+  flex-wrap: wrap;
+  gap: 0.5rem 1.25rem;
 }
 
 .project-link {

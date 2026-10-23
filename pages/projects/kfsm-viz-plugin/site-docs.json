@@ -1,0 +1,19 @@
+{
+    "name": "kfsm-viz-plugin",
+    "group": "org.infosmid",
+    "version": "2.0.2",
+    "title": "KFSM Visualization plugin",
+    "summary": "KFSM Visualization plugin for plantuml and asciidoc",
+    "license": "Apache-2.0",
+    "tags": [
+        "Gradle",
+        "Kotlin",
+        "FSM",
+        "PlantUML",
+        "Asciidoc",
+        "Mermaid"
+    ],
+    "sourceUrl": "https://github.com/infosmid-org/kfsm-viz-plugin",
+    "guide": "index.html",
+    "api": "api/index.html"
+}

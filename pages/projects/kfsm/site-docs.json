@@ -1,0 +1,17 @@
+{
+    "name": "kfsm",
+    "group": "org.infosmid",
+    "version": "2.0.0",
+    "title": "KFSM",
+    "summary": "Kotlin Finite-state machine with DSL",
+    "license": "Apache-2.0",
+    "tags": [
+        "Kotlin",
+        "Multiplatform",
+        "FSM",
+        "DSL"
+    ],
+    "sourceUrl": "https://github.com/infosmid-org/kfsm",
+    "guide": "index.html",
+    "api": "api/index.html"
+}

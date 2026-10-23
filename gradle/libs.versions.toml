@@ -1,0 +1,5 @@
+[versions]
+localProperties = "1.0.1"
+
+[plugins]
+local-properties = { id = "io.jumpco.open.gradle.local-properties", version.ref = "localProperties" }

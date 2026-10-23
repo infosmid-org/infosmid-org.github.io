@@ -1,0 +1,63 @@
+{
+  "projects": [
+    {
+      "name": "stream-deployer",
+      "fetch": false,
+      "version": "1.0.0",
+      "license": "Apache-2.0",
+      "description": "Automated deployment, configuration, and lifecycle orchestration tool for Spring Cloud Data Flow streams. Simplifies complex data streaming pipelines with programmatic verification, configuration management, and robust deployment automation.",
+      "tags": ["Java", "Spring Cloud Data Flow", "Streaming", "Deployment"],
+      "links": [
+        { "type": "github", "label": "View on GitHub", "url": "https://github.com/infosmid-org/stream-deployer" }
+      ]
+    },
+    {
+      "name": "kfsm",
+      "fetch": true,
+      "version": "2.0.0",
+      "license": "Apache-2.0",
+      "description": "KFSM is a Kotlin Multiplatform Library that provides a DSL for defining Finite State Machines and executing using an immutable configuration.",
+      "tags": ["Kotlin", "Finite State Machine", "DSL", "Multiplatform"],
+      "links": [
+        { "type": "docs", "label": "Documentation", "url": "projects/kfsm/index.html" },
+        { "type": "api", "label": "API", "url": "projects/kfsm/api/index.html" },
+        { "type": "github", "label": "View on GitHub", "url": "https://github.com/infosmid-org/kfsm" }
+      ]
+    },
+    {
+      "name": "kfsm-viz",
+      "fetch": true,
+      "version": "2.0.1",
+      "license": "Apache-2.0",
+      "description": "KFSM-VIZ is a Kotlin Library for generating PlantUML and/or Mermaid diagrams from KFSM definitions as well as Asciidoctor file with State Table from KFSM DSL.",
+      "tags": ["Kotlin", "FSM", "Visualize", "PlantUML", "Mermaid", "Asciidoctor"],
+      "links": [
+        { "type": "docs", "label": "Documentation", "url": "projects/kfsm-viz/index.html" },
+        { "type": "api", "label": "API", "url": "projects/kfsm-viz/api/index.html" },
+        { "type": "github", "label": "View on GitHub", "url": "https://github.com/infosmid-org/kfsm-viz" }
+      ]
+    },
+    {
+      "name": "kfsm-viz-plugin",
+      "fetch": true,
+      "version": "2.0.2",
+      "license": "Apache-2.0",
+      "description": "This is a Gradle plugin that will generate PlantUML and/or Mermaid diagrams from KFSM definitions as well as Asciidoctor file with State Table.",
+      "tags": ["Kotlin", "KFSM", "Visualization", "Multiplatform"],
+      "links": [
+        { "type": "docs", "label": "Documentation", "url": "projects/kfsm-viz-plugin/index.html" },
+        { "type": "github", "label": "View on GitHub", "url": "https://github.com/infosmid-org/kfsm-vis-plugin" }
+      ]
+    },
+    {
+      "name": "More in Development",
+      "fetch": false,
+      "badge": "Ecosystem",
+      "description": "Additional architectural patterns, test helpers, and streaming connectors derived from real-world consulting engagements at infosmid.com are continuously evaluated and packaged for public release.",
+      "tags": ["JVM", "Microservices", "Distributed Systems"],
+      "links": [
+        { "type": "github", "label": "Follow Organization", "url": "https://github.com/infosmid-org" }
+      ]
+    }
+  ]
+}
