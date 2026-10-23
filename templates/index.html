@@ -163,8 +163,11 @@
         <div class="projects-grid" id="projects-grid">
 <% projects.each { p -> %>          <article class="project-card">
             <div class="project-card-header">
-              <h3 class="project-name">${h(p.name)}</h3>
-<% [p.license ?: p.badge, p.version ? 'v' + p.version : null].findAll { it }.each { label -> %>              <span class="project-badge">${h(label)}</span>
+              <div class="project-title">
+                <h3 class="project-name">${h(p.name)}</h3>
+<% if (p.version) { %>                <span class="project-badge project-version">v${h(p.version)}</span>
+<% } %>              </div>
+<% if (p.license ?: p.badge) { %>              <span class="project-badge">${h(p.license ?: p.badge)}</span>
 <% } %>            </div>
             <p class="project-description">
               ${h(p.description)}

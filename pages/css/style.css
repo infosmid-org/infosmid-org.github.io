@@ -497,6 +497,14 @@ body {
   margin-bottom: 0.85rem;
 }
 
+.project-title {
+  display: flex;
+  align-items: center;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  min-width: 0;
+}
+
 .project-name {
   font-size: 1.3rem;
   font-weight: 700;
@@ -563,6 +571,11 @@ body {
 
 .project-link:hover {
   text-decoration: underline;
+}
+
+.project-version {
+  text-transform: none;
+  font-family: var(--font-mono);
 }
 
 /* About / Relationship Section */
