@@ -1,0 +1,19 @@
+{
+    "name": "stream-deployer",
+    "group": "org.infosmid",
+    "version": "1.0.0",
+    "title": "Stream Deployer",
+    "summary": "Creates Kubernetes manifests and Mermaid diagrams from Spring Cloud Data Flow stream definitions",
+    "license": "Apache-2.0",
+    "tags": [
+        "Java",
+        "Spring Cloud Data Flow",
+        "Kubernetes",
+        "Mermaid",
+        "Streaming",
+        "Deployment"
+    ],
+    "sourceUrl": "https://github.com/infosmid-org/stream-deployer",
+    "guide": "index.html",
+    "api": "api/index.html"
+}

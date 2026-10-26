@@ -1,0 +1,5 @@
+org.infosmid.stream.core
+org.infosmid.stream.deployer
+org.infosmid.stream.diagram
+org.infosmid.stream.dsl
+org.infosmid.stream.kubernetes

@@ -2,12 +2,13 @@
   "projects": [
     {
       "name": "stream-deployer",
-      "fetch": false,
+      "fetch": true,
       "version": "1.0.0",
       "license": "Apache-2.0",
       "description": "Automated deployment, configuration, and lifecycle orchestration tool for Spring Cloud Data Flow streams. Simplifies complex data streaming pipelines with programmatic verification, configuration management, and robust deployment automation.",
       "tags": ["Java", "Spring Cloud Data Flow", "Streaming", "Deployment"],
       "links": [
+        { "type": "docs", "label": "Documentation", "url": "projects/stream-deployer/index.html" },
         { "type": "github", "label": "View on GitHub", "url": "https://github.com/infosmid-org/stream-deployer" }
       ]
     },

@@ -1,0 +1,432 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Stream Deployer</title>
+    <style>
+        :root {
+            --color-canvas-default: #ffffff;
+            --color-canvas-subtle: #f6f8fa;
+            --color-fg-default: #1f2328;
+            --color-fg-muted: #656d76;
+            --color-border-default: #d0d7de;
+            --color-border-muted: #d8dee4;
+            --color-accent-fg: #0969da;
+        }
+        @media (prefers-color-scheme: dark) {
+            :root {
+                --color-canvas-default: #0d1117;
+                --color-canvas-subtle: #161b22;
+                --color-fg-default: #e6edf3;
+                --color-fg-muted: #848d97;
+                --color-border-default: #30363d;
+                --color-border-muted: #21262d;
+                --color-accent-fg: #2f81f7;
+            }
+        }
+        body {
+            font-family: -apple-system, BlinkMacSystemFont, "Segoe UI", "Noto Sans", Helvetica, Arial, sans-serif;
+            font-size: 16px;
+            line-height: 1.6;
+            word-wrap: break-word;
+            background-color: var(--color-canvas-default);
+            color: var(--color-fg-default);
+            max-width: 980px;
+            margin: 0 auto;
+            padding: 32px 24px;
+        }
+        a {
+            color: var(--color-accent-fg);
+            text-decoration: none;
+        }
+        a:hover {
+            text-decoration: underline;
+        }
+        h1, h2, h3, h4, h5, h6 {
+            margin-top: 24px;
+            margin-bottom: 16px;
+            font-weight: 600;
+            line-height: 1.25;
+        }
+        h1 {
+            font-size: 2em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--color-border-muted);
+        }
+        h2 {
+            font-size: 1.5em;
+            padding-bottom: 0.3em;
+            border-bottom: 1px solid var(--color-border-muted);
+        }
+        p, blockquote, ul, ol, dl, table, pre, details {
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        code {
+            padding: 0.2em 0.4em;
+            margin: 0;
+            font-size: 85%;
+            white-space: break-spaces;
+            background-color: var(--color-canvas-subtle);
+            border-radius: 6px;
+            font-family: ui-monospace, SFMono-Regular, "SF Mono", Menlo, Consolas, "Liberation Mono", monospace;
+        }
+        pre {
+            padding: 16px;
+            overflow: auto;
+            font-size: 85%;
+            line-height: 1.45;
+            background-color: var(--color-canvas-subtle);
+            border-radius: 6px;
+            border: 1px solid var(--color-border-muted);
+        }
+        pre code {
+            padding: 0;
+            background-color: transparent;
+            border: 0;
+            font-size: 100%;
+        }
+        table {
+            border-spacing: 0;
+            border-collapse: collapse;
+            display: block;
+            width: max-content;
+            max-width: 100%;
+            overflow: auto;
+            margin-top: 0;
+            margin-bottom: 16px;
+        }
+        table th, table td {
+            padding: 6px 13px;
+            border: 1px solid var(--color-border-default);
+        }
+        table tr {
+            background-color: var(--color-canvas-default);
+            border-top: 1px solid var(--color-border-muted);
+        }
+        table tr:nth-child(2n) {
+            background-color: var(--color-canvas-subtle);
+        }
+        img {
+            max-width: 100%;
+            box-sizing: content-box;
+        }
+        hr {
+            height: 0.25em;
+            padding: 0;
+            margin: 24px 0;
+            background-color: var(--color-border-default);
+            border: 0;
+        }
+        .mermaid {
+            text-align: center;
+            margin: 16px 0;
+        }
+    </style>
+    <script type="module">
+        import mermaid from 'https://cdn.jsdelivr.net/npm/mermaid@11/dist/mermaid.esm.min.mjs';
+        mermaid.initialize({ startOnLoad: true });
+    </script>
+</head>
+<body>
+<h1 id="stream-deployer">Stream Deployer</h1>
+<p><a href="https://github.com/infosmid-org/stream-deployer/releases"><img src="https://img.shields.io/github/v/release/infosmid-org/stream-deployer" alt="GitHub Release" /></a>
+<a href="LICENSE"><img src="https://img.shields.io/github/license/infosmid-org/stream-deployer" alt="License" /></a>
+<a href="https://github.com/infosmid-org/stream-deployer/actions/workflows/build-snapshot.yml"><img src="https://img.shields.io/github/actions/workflow/status/infosmid-org/stream-deployer/build-snapshot.yml?branch=main" alt="Build Status" /></a></p>
+<p>Stream Deployer creates Kubernetes manifests and Mermaid diagrams from Spring Cloud Data Flow stream definitions.
+It resolves stream bindings and injects communication channels and groups into container arguments.</p>
+<p>The DSL parser code was copied from archived <a href="https://github.com/spring-attic/spring-cloud-dataflow">Spring Cloud Data Flow</a></p>
+<p>The stream definition JSON:</p>
+<pre><code class="language-json">{
+  &quot;streams&quot;: [
+    {
+      &quot;name&quot;: &quot;time-logger&quot;,
+      &quot;dslText&quot;: &quot;time | log&quot;,
+      &quot;originalDslText&quot;: &quot;time | log&quot;,
+      &quot;description&quot;: &quot;Generates timestamps and logs the timestamps&quot;
+    }
+  ]
+}
+</code></pre>
+<p>will produce a diagram like below.</p>
+<pre><code class="language-mermaid">---
+title: time-logger - Generates timestamps and logs the timestamps
+---
+%%{init: {&quot;theme&quot;: &quot;dark&quot;, &quot;themeCSS&quot;: &quot;.label { color: white; font-weight: normal; display: inline-flex; align-items; center; justify-content: center; border-radius: 9999px; padding: 4px 12px; } .name { color: lightgrey; font-weight: normal; padding: 4px 12px; } .sink-node { background-color: #17242b; text-align: left; justify-content: left; margin-right: 16px; } .sink-node .label { background-color: #f5be00; } .source-node { background-color: #17242b; text-align: left; justify-content: left; margin-right: 16px; } .source-node .label { background-color: #0096ff; } &quot;}}%%
+flowchart LR
+    time[&quot;&lt;div class='source-node'&gt;&lt;span class='name'&gt;time&lt;/span&gt;&lt;br&gt;&lt;span class='label'&gt;TIME&lt;/span&gt;&lt;/div&gt;&quot;]:::source
+    log[&quot;&lt;div class='sink-node'&gt;&lt;span class='name'&gt;log&lt;/span&gt;&lt;br&gt;&lt;span class='label'&gt;LOG&lt;/span&gt;&lt;/div&gt;&quot;]:::sink
+    time --&gt; log
+
+    classDef source fill:#17242b,stroke:#0096ff,stroke-width:3px;
+    classDef sink fill:#17242b,stroke:#f5be00,stroke-width:3px;
+    class log sink;
+    class time source;
+
+    linkStyle default stroke-width:3px;
+
+</code></pre>
+<h2 id="requirements">Requirements</h2>
+<p>The project requires the following software:</p>
+<ul>
+<li>Java 25 (SDKMAN or compatible JDK)</li>
+<li>GraalVM with <code>native-image</code> (for native compilation and native testing)</li>
+</ul>
+<h2 id="running-the-program">Running the Program</h2>
+<p>Run the application with JVM Distribution or with the compiled binary.</p>
+<h3 id="command-line-options">Command-Line Options</h3>
+<p>The command syntax is:</p>
+<pre><code class="language-text">stream-deployer [OPTIONS] -d=&lt;definitionFile&gt;
+</code></pre>
+<p>The table below shows all command-line options:</p>
+<table>
+<thead>
+<tr>
+<th align="left">Option</th>
+<th align="left">Required</th>
+<th align="left">Description</th>
+</tr>
+</thead>
+<tbody>
+<tr>
+<td align="left"><code>-d, --definition=&lt;file&gt;</code></td>
+<td align="left">Yes</td>
+<td align="left">Path to JSON file with stream definitions.</td>
+</tr>
+<tr>
+<td align="left"><code>-p, --properties=&lt;file&gt;</code></td>
+<td align="left">No*</td>
+<td align="left">Path to properties file with deployment properties.</td>
+</tr>
+<tr>
+<td align="left"><code>-m, --metadata=&lt;file&gt;</code></td>
+<td align="left">No*</td>
+<td align="left">Path to properties file with container image metadata.</td>
+</tr>
+<tr>
+<td align="left"><code>-o, --output=&lt;file&gt;</code></td>
+<td align="left">No</td>
+<td align="left">Path to output Kubernetes YAML manifest file.</td>
+</tr>
+<tr>
+<td align="left"><code>--diagram[=&lt;file&gt;]</code></td>
+<td align="left">No</td>
+<td align="left">Path to output Mermaid diagram file (<code>.mmd</code>).</td>
+</tr>
+<tr>
+<td align="left"><code>-h, --help</code></td>
+<td align="left">No</td>
+<td align="left">Show help message and exit.</td>
+</tr>
+<tr>
+<td align="left"><code>-V, --version</code></td>
+<td align="left">No</td>
+<td align="left">Show version information and exit.</td>
+</tr>
+</tbody>
+</table>
+<p>* Provide <code>--properties</code> and <code>--metadata</code> to create Kubernetes YAML manifests.</p>
+<h3 id="default-output-behavior">Default Output Behavior</h3>
+<p>If you do not specify <code>--output</code> and <code>--diagram</code>, the tool creates both files.
+The tool uses the base name of the definition file for output file names.
+For example, <code>input.json</code> produces <code>input.yaml</code> and <code>input.mmd</code>.</p>
+<p>If you specify only <code>--diagram</code>, the tool creates only the Mermaid diagram.
+In this case, the tool does not require <code>--properties</code> and <code>--metadata</code>.</p>
+<h3 id="examples">Examples</h3>
+<p>Create both Kubernetes manifests and a Mermaid diagram:</p>
+<pre><code class="language-bash">stream-deployer -d stream.json -p stream.properties -m metadata.properties
+</code></pre>
+<p>Create only a Mermaid diagram:</p>
+<pre><code class="language-bash">stream-deployer -d stream.json --diagram=topology.mmd
+</code></pre>
+<p>Create Kubernetes manifests with an explicit output file:</p>
+<pre><code class="language-bash">stream-deployer -d stream.json -p stream.properties -m metadata.properties -o manifests.yaml
+</code></pre>
+<h2 id="building-distributions">Building Distributions</h2>
+<p>The project supports both JVM distributions and GraalVM native distributions.</p>
+<h3 id="build-jvm-distribution">Build JVM Distribution</h3>
+<p>Run the following command to build the JVM distribution archives:</p>
+<pre><code class="language-bash">./gradlew assembleDist
+</code></pre>
+<p>Gradle creates the following distribution files in <code>build/distributions/</code>:</p>
+<ul>
+<li><code>stream-deployer-1.0.0-SNAPSHOT.zip</code></li>
+<li><code>stream-deployer-1.0.0-SNAPSHOT.tar</code></li>
+</ul>
+<p>To prepare an unpacked distribution directory, run:</p>
+<pre><code class="language-bash">./gradlew installDist
+</code></pre>
+<p>Gradle creates the unpacked distribution in <code>build/install/stream-deployer/</code>.
+The directory contains:</p>
+<ul>
+<li><code>bin/stream-deployer</code> (Unix launch script)</li>
+<li><code>bin/stream-deployer.bat</code> (Windows launch script)</li>
+<li><code>lib/</code> (Application and dependency JAR files)</li>
+</ul>
+<h3 id="build-native-distribution">Build Native Distribution</h3>
+<p>You can compile a standalone native executable with GraalVM.
+The build requires GraalVM for JDK 25 with the <code>native-image</code> component installed.</p>
+<p>Run the following command to compile the native executable:</p>
+<pre><code class="language-bash">./gradlew nativeCompile
+</code></pre>
+<p>Gradle uses the following build configuration:</p>
+<ul>
+<li>Builds a standalone executable without fallback (<code>--no-fallback</code>).</li>
+<li>Emits a build report with compilation statistics.</li>
+<li>Uses GraalVM reachability metadata repository support.</li>
+</ul>
+<p>Gradle writes the output files to <code>build/native/nativeCompile/</code>:</p>
+<ul>
+<li><code>stream-deployer</code> (Executable binary on Linux and macOS)</li>
+<li><code>stream-deployer.exe</code> (Executable binary on Windows)</li>
+<li>Shared library files (<code>.so</code>, <code>.dylib</code>, or <code>.dll</code>), if present</li>
+</ul>
+<h3 id="run-native-tests">Run Native Tests</h3>
+<p>You can compile and execute tests as a native image.
+Native tests verify application behavior and reachability metadata in a native environment.</p>
+<p>Run the following command to execute native tests:</p>
+<pre><code class="language-bash">./gradlew nativeTest
+</code></pre>
+<p>Gradle compiles test classes into a native executable and runs the tests.
+The test results and reports are saved to <code>build/reports/tests/nativeTest/</code>.</p>
+<h3 id="generate-reachability-metadata">Generate Reachability Metadata</h3>
+<p>The project uses GraalVM reachability metadata to configure reflection, serialization, and resources.
+Standard JVM tests run without the tracing agent to avoid test execution conflicts.</p>
+<p>When you add new dynamic dependencies or reflection code, collect updated metadata.</p>
+<ol>
+<li>
+<p>Run the test suite with the native agent enabled:</p>
+<pre><code class="language-bash">./gradlew -Pagent test
+</code></pre>
+<p>The agent records dynamic access and writes configuration files to <code>build/native/agent-output/test/</code>.</p>
+</li>
+<li>
+<p>Copy the generated metadata into the project source tree:</p>
+<pre><code class="language-bash">./gradlew metadataCopy --task test --dir src/main/resources/META-INF/native-image
+</code></pre>
+</li>
+<li>
+<p>Review the updated JSON files in <code>src/main/resources/META-INF/native-image/</code> and commit them to version control.</p>
+</li>
+</ol>
+<h2 id="installing-locally">Installing Locally</h2>
+<p>You can install either the JVM distribution or the native binary to your local user environment.</p>
+<p>The project provides two Gradle tasks for local installation:</p>
+<ul>
+<li><code>installLocalJvm</code>: Builds the JVM distribution and copies launcher scripts and libraries.</li>
+<li><code>installLocalNative</code>: Compiles the GraalVM native binary and copies executable files and shared libraries.</li>
+</ul>
+<h3 id="default-installation-paths">Default Installation Paths</h3>
+<p>The installation tasks use the following default paths:</p>
+<ul>
+<li><strong>Linux and macOS</strong>:
+<ul>
+<li>Binaries and scripts: <code>$HOME/.local/bin</code></li>
+<li>JVM libraries: <code>$HOME/.local/lib</code></li>
+</ul>
+</li>
+<li><strong>Windows</strong>:
+<ul>
+<li>Binaries and scripts: <code>%LOCALAPPDATA%\Programs\stream-deployer\bin</code></li>
+<li>JVM libraries: <code>%LOCALAPPDATA%\Programs\stream-deployer\lib</code></li>
+</ul>
+</li>
+</ul>
+<p>You can change the target installation directory with the <code>-PinstallDir=&lt;path&gt;</code> option:</p>
+<pre><code class="language-bash">./gradlew installLocalJvm -PinstallDir=&quot;$HOME/custom-tools&quot;
+</code></pre>
+<h2 id="installing-on-linux-and-macos">Installing on Linux and macOS</h2>
+<h3 id="install-jvm-build-on-linux-and-macos">Install JVM Build on Linux and macOS</h3>
+<ol>
+<li>
+<p>Run the <code>installLocalJvm</code> task:</p>
+<pre><code class="language-bash">./gradlew installLocalJvm
+</code></pre>
+<p>This task runs <code>installDist</code>, creates <code>$HOME/.local/bin</code> and <code>$HOME/.local/lib</code> if necessary, and copies the application files.</p>
+</li>
+<li>
+<p>Ensure <code>$HOME/.local/bin</code> is in your <code>PATH</code> environment variable:</p>
+<pre><code class="language-bash">export PATH=&quot;$HOME/.local/bin:$PATH&quot;
+</code></pre>
+</li>
+<li>
+<p>Verify the installation:</p>
+<pre><code class="language-bash">stream-deployer --help
+</code></pre>
+</li>
+</ol>
+<h3 id="install-native-build-on-linux-and-macos">Install Native Build on Linux and macOS</h3>
+<ol>
+<li>
+<p>Run the <code>installLocalNative</code> task:</p>
+<pre><code class="language-bash">./gradlew installLocalNative
+</code></pre>
+<p>This task runs <code>nativeCompile</code>, creates <code>$HOME/.local/bin</code> if necessary, copies <code>stream-deployer</code> and shared libraries (<code>.so</code>, <code>.dylib</code>), and sets executable permissions (<code>0755</code>).</p>
+</li>
+<li>
+<p>Ensure <code>$HOME/.local/bin</code> is in your <code>PATH</code> environment variable.</p>
+</li>
+<li>
+<p>Verify the installation:</p>
+<pre><code class="language-bash">stream-deployer --help
+</code></pre>
+</li>
+</ol>
+<h2 id="installing-on-windows">Installing on Windows</h2>
+<h3 id="install-jvm-build-on-windows">Install JVM Build on Windows</h3>
+<ol>
+<li>
+<p>Run the <code>installLocalJvm</code> task in Command Prompt or PowerShell:</p>
+<pre><code class="language-cmd">gradlew.bat installLocalJvm
+</code></pre>
+<p>This task runs <code>installDist</code>, creates <code>%LOCALAPPDATA%\Programs\stream-deployer\bin</code> and <code>lib</code> directories if necessary, and copies the files.</p>
+</li>
+<li>
+<p>Add the binary directory to your <code>PATH</code> environment variable:</p>
+<pre><code class="language-cmd">setx PATH &quot;%LOCALAPPDATA%\Programs\stream-deployer\bin;%PATH%&quot;
+</code></pre>
+</li>
+<li>
+<p>Open a new terminal window to refresh environment variables.</p>
+</li>
+<li>
+<p>Verify the installation:</p>
+<pre><code class="language-cmd">stream-deployer.bat --help
+</code></pre>
+</li>
+</ol>
+<h3 id="install-native-build-on-windows">Install Native Build on Windows</h3>
+<ol>
+<li>
+<p>Run the <code>installLocalNative</code> task in Command Prompt or PowerShell:</p>
+<pre><code class="language-cmd">gradlew.bat installLocalNative
+</code></pre>
+<p>This task runs <code>nativeCompile</code>, creates <code>%LOCALAPPDATA%\Programs\stream-deployer\bin</code> if necessary, and copies <code>stream-deployer.exe</code> and any dynamic library files (<code>.dll</code>).</p>
+</li>
+<li>
+<p>Add the binary directory to your <code>PATH</code> environment variable if necessary:</p>
+<pre><code class="language-cmd">setx PATH &quot;%LOCALAPPDATA%\Programs\stream-deployer\bin;%PATH%&quot;
+</code></pre>
+</li>
+<li>
+<p>Open a new terminal window.</p>
+</li>
+<li>
+<p>Verify the installation:</p>
+<pre><code class="language-cmd">stream-deployer --help
+</code></pre>
+</li>
+</ol>
+
+<script>
+    document.querySelectorAll('pre code.language-mermaid').forEach(function(el) {
+        var pre = el.parentElement;
+        var div = document.createElement('div');
+        div.className = 'mermaid';
+        div.textContent = el.textContent;
+        pre.parentNode.replaceChild(div, pre);
+    });
+</script>
+</body>
+</html>
