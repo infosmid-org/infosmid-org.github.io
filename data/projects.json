@@ -27,6 +27,17 @@
       ]
     },
     {
+      "name": "gradle-offline-deps",
+      "fetch": false,
+      "version": "1.0.1",
+      "license": "Apache-2.0",
+      "description": "Gradle plugin for offline dependencies. Resolves all dependencies of a project and its subprojects and copies them into a local Maven repository.",
+      "tags": ["Gradle", "Plugin", "Dependencies", "Offline"],
+      "links": [
+        { "type": "github", "label": "View on GitHub", "url": "https://github.com/infosmid-org/gradle-offline-deps" }
+      ]
+    },
+    {
       "name": "kfsm",
       "fetch": true,
       "version": "2.0.0",
