@@ -1,0 +1,152 @@
+name: Cleanup Packages
+
+on:
+  workflow_dispatch:
+  schedule:
+    - cron: '0 0 * * *' # Daily cleanup
+
+jobs:
+  list-packages:
+    runs-on: ubuntu-24.04
+    outputs:
+      maven-packages: ${{ steps.list.outputs.maven-packages }}
+      container-packages: ${{ steps.list.outputs.container-packages }}
+    steps:
+      - name: Setup jq
+        uses: vegardit/gha-setup-jq@v1
+        with:
+          version: 1.8.1
+          use-cache: true
+      - name: list packages
+        id: list
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          MAVEN_PKGS=$(gh api "/orgs/${{ github.repository_owner }}/packages?package_type=maven" | jq -r '.[] | .name')
+          for pkg in $MAVEN_PKGS; do
+            VERSIONS=$(gh api "/orgs/${{ github.repository_owner }}/packages/maven/$pkg/versions" | jq -r '.[] | .name')
+            if [ "$VERSIONS" == "" ]; then
+              VERSIONS="N/A"
+            fi
+            for version in $VERSIONS; do
+              echo "::info maven: $pkg:$version"
+            done
+          done
+          IMAGES=$(gh api "/orgs/${{ github.repository_owner }}/packages?package_type=container" | jq -r '.[] | .name')
+          for img in $IMAGES; do
+            VERSIONS=$(gh api "/orgs/${{ github.repository_owner }}/packages/container/$img/versions" | jq -r '.[] | select(.metadata.container.tags != null and (.metadata.container.tags | length > 0)) | .metadata.container.tags | .[]')
+            if [ "$VERSIONS" == "" ]; then
+              VERSIONS="N/A"
+            fi
+            for version in $VERSIONS; do
+              echo "::info container: ghcr.io/${{ github.repository_owner }}/$img:$version"
+            done
+          done
+          echo "maven-packages=$(echo "$MAVEN_PKGS" | jq -R -s -c 'split("\n") | map(select(length > 0)) | unique')" >> "$GITHUB_OUTPUT"
+          echo "container-packages=$(echo "$IMAGES" | jq -R -s -c 'split("\n") | map(select(length > 0)) | unique')" >> "$GITHUB_OUTPUT"
+          set -e
+  cleanup-maven:
+    needs: list-packages
+    if: always() && needs.list-packages.outputs.maven-packages != '' && needs.list-packages.outputs.maven-packages != '[]'
+    runs-on: ubuntu-latest
+    permissions:
+      packages: write
+    strategy:
+      max-parallel: 4
+      matrix:
+        package: ${{ fromJson(needs.list-packages.outputs.maven-packages) }}
+    steps:
+      - name: Setup jq
+        uses: vegardit/gha-setup-jq@v1
+        with:
+          version: 1.8.1
+          use-cache: true
+      - name: Check if package exists
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+        run: |
+          set +e
+          COUNT=$(gh api "/orgs/${{ github.repository_owner }}/packages/maven/${{ matrix.package }}" 2>/dev/null | jq -r '.version_count // 0')
+          if [ -z "$COUNT" ] || [ "$COUNT" = "null" ] || [ "$COUNT" -eq 0 ] 2>/dev/null; then
+            COUNT=$(gh api "/users/${{ github.repository_owner }}/packages/maven/${{ matrix.package }}" 2>/dev/null | jq -r '.version_count // 0')
+          fi
+          if [ -n "$COUNT" ] && [ "$COUNT" != "null" ] && [ "$COUNT" -gt 0 ] 2>/dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning ::Package ${{ matrix.package }} not found"
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+          set -e
+      - name: Delete old snapshots
+        if: steps.check.outputs.exists == 'true'
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: '${{ matrix.package }}'
+          package-type: 'maven'
+          min-versions-to-keep: 2
+          delete-only-pre-release-versions: 'true'
+  cleanup-containers:
+    needs: list-packages
+    if: always() && needs.list-packages.outputs.container-packages != '' && needs.list-packages.outputs.container-packages != '[]'
+    runs-on: ubuntu-24.04
+    permissions:
+      packages: write
+    strategy:
+      max-parallel: 4
+      matrix:
+        package: ${{ fromJson(needs.list-packages.outputs.container-packages) }}
+    steps:
+      - name: Setup jq
+        uses: vegardit/gha-setup-jq@v1
+        with:
+          version: 1.8.1
+          use-cache: true
+      - name: Check if package exists
+        id: check
+        env:
+          GH_TOKEN: ${{ secrets.GHCR_DELETE_TOKEN }}
+        run: |
+          set +e
+          COUNT=$(gh api "/orgs/${{ github.repository_owner }}/packages/container/${{ matrix.package }}" 2>/dev/null | jq -r '.version_count // 0')
+          if [ -z "$COUNT" ] || [ "$COUNT" = "null" ] || [ "$COUNT" -eq 0 ] 2>/dev/null; then
+            COUNT=$(gh api "/users/${{ github.repository_owner }}/packages/container/${{ matrix.package }}" 2>/dev/null | jq -r '.version_count // 0')
+          fi
+          if [ -n "$COUNT" ] && [ "$COUNT" != "null" ] && [ "$COUNT" -gt 0 ] 2>/dev/null; then
+            echo "exists=true" >> "$GITHUB_OUTPUT"
+          else
+            echo "::warning ::Package ${{ matrix.package }} not found"
+            echo "exists=false" >> "$GITHUB_OUTPUT"
+          fi
+          set -e
+      - name: Delete old snapshots
+        if: steps.check.outputs.exists == 'true'
+        uses: actions/delete-package-versions@v5
+        with:
+          package-name: '${{ matrix.package }}'
+          package-type: 'container'
+          delete-only-untagged-versions: 'true'
+          min-versions-to-keep: 4
+          token: ${{ secrets.GHCR_DELETE_TOKEN }}
+#          delete-only-pre-release-versions: 'true'
+  cleanup-other-containers:
+    runs-on: ubuntu-24.04
+    steps:
+      - name: Checkout ${{ github.ref }}
+        uses: actions/checkout@v4
+      - name: Delete untagged images
+        if: always()
+        env:
+          GH_TOKEN: ${{ secrets.GHCR_DELETE_TOKEN }}
+        run: |
+          ./.github/workflows/delete-untagged.sh
+  done:
+    runs-on: ubuntu-24.04
+    needs:
+      - list-packages
+      - cleanup-containers
+      - cleanup-maven
+    steps:
+      - name: Complete
+        run: echo "::info ::Completed"

@@ -1,0 +1,1 @@
+typeSearchIndex = [{"l":"All Classes and Interfaces","u":"allclasses-index.html"},{"p":"org.infosmid.plugins.gradle.local_props","l":"LocalPropertiesPlugin"}];updateSearchResults();

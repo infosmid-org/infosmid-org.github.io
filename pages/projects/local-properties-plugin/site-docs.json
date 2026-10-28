@@ -1,0 +1,16 @@
+{
+    "name": "local-properties-plugin",
+    "group": "org.infosmid",
+    "version": "1.0.2",
+    "title": "Local Properties Plugin",
+    "summary": "Override properties with gradle.local.properties",
+    "license": "MIT",
+    "tags": [
+        "Gradle",
+        "Plugin",
+        "Properties"
+    ],
+    "sourceUrl": "https://github.com/infosmid-org/local-properties-plugin",
+    "guide": "index.html",
+    "api": "api/index.html"
+}

@@ -1,0 +1,1 @@
+packageSearchIndex = [{"l":"All Packages","u":"allpackages-index.html"},{"l":"org.infosmid.plugins.gradle.local_props"}];updateSearchResults();

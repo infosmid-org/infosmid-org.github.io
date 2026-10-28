@@ -14,6 +14,18 @@
       ]
     },
     {
+      "name": "local-properties-plugin",
+      "fetch": true,
+      "version": "1.0.2",
+      "license": "Apache-2.0",
+      "description": "Gradle plugin for overriding gradle properties.",
+      "tags": ["Gradle", "Plugin", "Properties", "Override"],
+      "links": [
+        { "type": "docs", "label": "Documentation", "url": "projects/local-properties-plugin/index.html" },
+        { "type": "github", "label": "View on GitHub", "url": "https://github.com/infosmid-org/local-properties-plugin" }
+      ]
+    },
+    {
       "name": "design-by-contract",
       "fetch": true,
       "version": "1.0.0",
