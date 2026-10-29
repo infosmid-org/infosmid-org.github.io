@@ -8,8 +8,10 @@ plugins {
 // data/projects.json drives both the docs fetch and the landing page. Read through a provider so that a
 // change to the file is tracked as a configuration input and invalidates the configuration cache.
 def projectsFile = layout.projectDirectory.file('data/projects.json')
-def allProjects = new JsonSlurper()
-        .parseText(providers.fileContents(projectsFile).asText.get()).projects
+def projectsData = new JsonSlurper()
+        .parseText(providers.fileContents(projectsFile).asText.get())
+def allProjects = projectsData.projects
+def projectGroups = projectsData.groups ?: []
 // projects flagged "fetch": true have a <name>-doc artefact of the given "version" on GitHub Packages
 def fetchProjects = allProjects.findAll { it.fetch }
 
@@ -90,6 +92,7 @@ tasks.register('renderPages', Copy) {
         include 'index.html'
         expand([
                 projects: allProjects,
+                groups  : projectGroups,
                 h       : escapeHtml,
                 icon    : iconSvg
         ])

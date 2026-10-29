@@ -1,0 +1,17 @@
+{
+    "name": "skip-report-plugin",
+    "group": "org.infosmid",
+    "version": "1.0.0",
+    "title": "Skip report plugin",
+    "summary": "Gradle plugin that reports why tests were skipped",
+    "license": "Apache-2.0",
+    "tags": [
+        "Gradle",
+        "JUnit",
+        "Testing",
+        "Report"
+    ],
+    "sourceUrl": "https://github.com/infosmid-org/skip-report-plugin",
+    "guide": "index.html",
+    "api": "api/index.html"
+}

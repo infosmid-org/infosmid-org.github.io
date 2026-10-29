@@ -1,7 +1,13 @@
 {
+  "groups": [
+    "Libraries",
+    "Utilities",
+    "Plugins"
+  ],
   "projects": [
     {
       "name": "stream-deployer",
+      "group": "Utilities",
       "fetch": true,
       "version": "1.0.0",
       "license": "Apache-2.0",
@@ -14,20 +20,61 @@
       ]
     },
     {
+      "name": "skip-report-plugin",
+      "fetch": true,
+      "group": "Plugins",
+      "version": "1.0.0",
+      "license": "Apache-2.0",
+      "description": "Gradle plugin for logging skipped tests.",
+      "tags": [
+        "Gradle",
+        "Plugin",
+        "junit",
+        "logging"
+      ],
+      "links": [
+        {
+          "type": "docs",
+          "label": "Documentation",
+          "url": "projects/skip-report-plugin/index.html"
+        },
+        {
+          "type": "github",
+          "label": "View on GitHub",
+          "url": "https://github.com/infosmid-org/skip-report-plugin"
+        }
+      ]
+    },
+    {
       "name": "local-properties-plugin",
       "fetch": true,
+      "group": "Plugins",
       "version": "1.0.2",
       "license": "Apache-2.0",
       "description": "Gradle plugin for overriding gradle properties.",
-      "tags": ["Gradle", "Plugin", "Properties", "Override"],
+      "tags": [
+        "Gradle",
+        "Plugin",
+        "Properties",
+        "Override"
+      ],
       "links": [
-        { "type": "docs", "label": "Documentation", "url": "projects/local-properties-plugin/index.html" },
-        { "type": "github", "label": "View on GitHub", "url": "https://github.com/infosmid-org/local-properties-plugin" }
+        {
+          "type": "docs",
+          "label": "Documentation",
+          "url": "projects/local-properties-plugin/index.html"
+        },
+        {
+          "type": "github",
+          "label": "View on GitHub",
+          "url": "https://github.com/infosmid-org/local-properties-plugin"
+        }
       ]
     },
     {
       "name": "design-by-contract",
       "fetch": true,
+      "group": "Libraries",
       "version": "1.0.0",
       "license": "Apache-2.0",
       "description": "Kotlin Multiplatform Library that provides functions to enforce Design by Contract concepts like preconditions, postconditions and invariants.",
@@ -41,6 +88,7 @@
     {
       "name": "gradle-offline-deps",
       "fetch": false,
+      "group": "Plugins",
       "version": "1.0.1",
       "license": "Apache-2.0",
       "description": "Gradle plugin for offline dependencies. Resolves all dependencies of a project and its subprojects and copies them into a local Maven repository.",
@@ -52,6 +100,7 @@
     {
       "name": "kfsm",
       "fetch": true,
+      "group": "Libraries",
       "version": "2.0.0",
       "license": "Apache-2.0",
       "description": "KFSM is a Kotlin Multiplatform Library that provides a DSL for defining Finite State Machines and executing using an immutable configuration.",
@@ -65,6 +114,7 @@
     {
       "name": "kfsm-viz",
       "fetch": true,
+      "group": "Libraries",
       "version": "2.0.2",
       "license": "Apache-2.0",
       "description": "KFSM-VIZ is a Kotlin Library for generating PlantUML and/or Mermaid diagrams from KFSM definitions as well as Asciidoctor file with State Table from KFSM DSL.",
@@ -78,6 +128,7 @@
     {
       "name": "kfsm-viz-plugin",
       "fetch": true,
+      "group": "Plugins",
       "version": "2.0.3",
       "license": "Apache-2.0",
       "description": "This is a Gradle plugin that will generate PlantUML and/or Mermaid diagrams from KFSM definitions as well as Asciidoctor file with State Table.",
