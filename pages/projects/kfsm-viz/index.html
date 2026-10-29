@@ -447,19 +447,21 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#generated-from-parsed-visualstatedefinition">Generated from parsed VisualStateDefinition</a>
-<ul class="sectlevel3">
+<ul class="sectlevel2">
 <li><a href="#simple-turnstile-fsm">Simple Turnstile FSM</a></li>
 </ul>
 </li>
 <li><a href="#simpleturnstilefsm-state-chart">SimpleTurnstileFSM State Chart</a>
 <ul class="sectlevel2">
 <li><a href="#simpleturnstilefsm-state-map">SimpleTurnstileFSM State Map</a></li>
+<li><a href="#paying-turnstile-fsm">Paying Turnstile FSM</a></li>
 </ul>
 </li>
 <li><a href="#payingturnstilefsm-state-chart">PayingTurnstileFSM State Chart</a>
 <ul class="sectlevel2">
 <li><a href="#payingturnstilefsm-state-map">PayingTurnstileFSM State Map</a></li>
 <li><a href="#state-map-coins">State Map coins</a></li>
+<li><a href="#secure-turnstile-fsm">Secure Turnstile FSM</a></li>
 </ul>
 </li>
 <li><a href="#secureturnstilefsm-state-chart">SecureTurnstileFSM State Chart</a>
@@ -568,21 +570,21 @@ fun produceVisualizationTurnstileFSM() {
 <div class="paragraph">
 <p>We generated an asciidoc table as well as a plantuml statemachine model.</p>
 </div>
-<div class="sect3">
-<h4 id="simple-turnstile-fsm">Simple Turnstile FSM</h4>
+<div class="sect2">
+<h3 id="simple-turnstile-fsm">Simple Turnstile FSM</h3>
 <div class="paragraph">
 <p><a href="./src/test/resources/SimpleTurnstile.kt">SimpleTurnstile.kt</a></p>
 </div>
-<div class="sect4">
-<h5 id="simple-state-diagram">Simple State Diagram</h5>
+<div class="sect3">
+<h4 id="simple-state-diagram">Simple State Diagram</h4>
 <div class="imageblock">
 <div class="content">
 <img src="simple-turnstile-simple.svg" alt="simple turnstile simple">
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="detailed-state-diagram">Detailed State Diagram</h5>
+<div class="sect3">
+<h4 id="detailed-state-diagram">Detailed State Diagram</h4>
 <div class="imageblock">
 <div class="content">
 <img src="simple-turnstile.svg" alt="simple turnstile">
@@ -614,7 +616,7 @@ fun produceVisualizationTurnstileFSM() {
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#start">[start]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[*]</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UNLOCKED</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
@@ -657,25 +659,25 @@ returnCoin()
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="paying-turnstile-fsm">Paying Turnstile FSM</h4>
+</div>
+<div class="sect2">
+<h3 id="paying-turnstile-fsm">Paying Turnstile FSM</h3>
 <div class="paragraph">
 <p><a href="./src/test/resources/PayingTurnstile.kt">PayingTurnstile.kt</a></p>
 </div>
-<div class="sect4">
-<h5 id="simple-state-diagram-2">Simple State Diagram</h5>
+<div class="sect3">
+<h4 id="simple-state-diagram-2">Simple State Diagram</h4>
 <div class="imageblock">
 <div class="content">
 <img src="paying-turnstile-simple.svg" alt="paying turnstile simple">
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="detailed-state-diagram-2">Detailed State Diagram</h5>
+<div class="sect3">
+<h4 id="detailed-state-diagram-2">Detailed State Diagram</h4>
 <div class="imageblock">
 <div class="content">
 <img src="paying-turnstile.svg" alt="paying turnstile">
-</div>
 </div>
 </div>
 </div>
@@ -704,7 +706,7 @@ returnCoin()
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#start">[start]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[*]</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UNLOCKED</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
@@ -783,7 +785,7 @@ lock()
 <tbody>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">COINS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;automatic&gt;&gt; <code>[{coins &gt; requiredCoins}]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#automatic">[automatic]</a> <code>[{coins &gt; requiredCoins}]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UNLOCKED</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
@@ -797,7 +799,7 @@ reset()
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">COINS</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;automatic&gt;&gt; <code>[{coins == requiredCoins}]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#automatic">[automatic]</a> <code>[{coins == requiredCoins}]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UNLOCKED</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
@@ -825,25 +827,25 @@ println("Please add ${requiredCoins-coins}")
 </tr>
 </tbody>
 </table>
-<div class="sect3">
-<h4 id="secure-turnstile-fsm">Secure Turnstile FSM</h4>
+</div>
+<div class="sect2">
+<h3 id="secure-turnstile-fsm">Secure Turnstile FSM</h3>
 <div class="paragraph">
 <p><a href="./src/test/resources/SecureTurnstile.kt">SecureTurnstile.kt</a></p>
 </div>
-<div class="sect4">
-<h5 id="simple-state-diagram-3">Simple State Diagram</h5>
+<div class="sect3">
+<h4 id="simple-state-diagram-3">Simple State Diagram</h4>
 <div class="imageblock">
 <div class="content">
 <img src="secure-turnstile-simple.svg" alt="secure turnstile simple">
 </div>
 </div>
 </div>
-<div class="sect4">
-<h5 id="detailed-state-diagram-3">Detailed State Diagram</h5>
+<div class="sect3">
+<h4 id="detailed-state-diagram-3">Detailed State Diagram</h4>
 <div class="imageblock">
 <div class="content">
 <img src="secure-turnstile.svg" alt="secure turnstile">
-</div>
 </div>
 </div>
 </div>
@@ -999,7 +1001,7 @@ lock()
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock">START</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">[*]</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CTRL <code>[{it == CharacterConstants.SOH}]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">RCVPCKT</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
@@ -1114,7 +1116,7 @@ checksum()
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CHKSUM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;automatic&gt;&gt; <code>[{!checksumValid}]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#automatic">[automatic]</a> <code>[{!checksumValid}]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">[*]</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">
@@ -1126,7 +1128,7 @@ sendNACK()
 </tr>
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CHKSUM</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;automatic&gt;&gt; <code>[{checksumValid}]</code></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#automatic">[automatic]</a> <code>[{checksumValid}]</code></p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">[*]</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"><div class="listingblock">
 <div class="content">

@@ -65,7 +65,7 @@
     {
       "name": "kfsm-viz",
       "fetch": true,
-      "version": "2.0.1",
+      "version": "2.0.2",
       "license": "Apache-2.0",
       "description": "KFSM-VIZ is a Kotlin Library for generating PlantUML and/or Mermaid diagrams from KFSM definitions as well as Asciidoctor file with State Table from KFSM DSL.",
       "tags": ["Kotlin", "FSM", "Visualize", "PlantUML", "Mermaid", "Asciidoctor"],
@@ -78,7 +78,7 @@
     {
       "name": "kfsm-viz-plugin",
       "fetch": true,
-      "version": "2.0.2",
+      "version": "2.0.3",
       "license": "Apache-2.0",
       "description": "This is a Gradle plugin that will generate PlantUML and/or Mermaid diagrams from KFSM definitions as well as Asciidoctor file with State Table.",
       "tags": ["Kotlin", "KFSM", "Visualization", "Multiplatform"],

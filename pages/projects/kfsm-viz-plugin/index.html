@@ -442,12 +442,15 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <ul class="sectlevel1">
 <li><a href="#getting-started">Getting started</a>
 <ul class="sectlevel2">
-<li><a href="#gradle-groovy-dsl">Gradle Groovy DSL</a></li>
+<li><a href="#groovy-dsl-build-gradle">Groovy DSL (<code>build.gradle</code>)</a></li>
+<li><a href="#kotlin-dsl-build-gradle-kts">Kotlin DSL (<code>build.gradle.kts</code>)</a></li>
+<li><a href="#version-catalog-gradlelibs-versions-toml">Version Catalog (<code>gradle/libs.versions.toml</code>)</a></li>
 </ul>
 </li>
 <li><a href="#configuration">Configuration</a>
 <ul class="sectlevel2">
-<li><a href="#gradle-groovy-dsl-2">Gradle Groovy DSL</a></li>
+<li><a href="#groovy-dsl-build-gradle-2">Groovy DSL (<code>build.gradle</code>)</a></li>
+<li><a href="#kotlin-dsl-build-gradle-kts-2">Kotlin DSL (<code>build.gradle.kts</code>)</a></li>
 <li><a href="#example-for-multiple-fsm-definitions">Example for multiple FSM definitions</a></li>
 </ul>
 </li>
@@ -481,6 +484,11 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div id="preamble">
 <div class="sectionbody">
 <div class="paragraph">
+<p><span class="image"><a class="image" href="https://github.com/infosmid-org/kfsm-viz-plugin/actions/workflows/snapshot.yml"><img src="https://github.com/infosmid-org/kfsm-viz-plugin/actions/workflows/snapshot.yml/badge.svg" alt="Build Status"></a></span>
+<span class="image"><a class="image" href="https://central.sonatype.com/artifact/org.infosmid.plugins/kfsm-viz-plugin"><img src="https://img.shields.io/maven-central/v/org.infosmid.plugins/kfsm-viz-plugin.svg" alt="Maven Central"></a></span>
+<span class="image"><a class="image" href="LICENSE"><img src="https://img.shields.io/badge/License-Apache%202.0-blue.svg" alt="License"></a></span></p>
+</div>
+<div class="paragraph">
 <p>This work is licensed under <a href="https://www.apache.org/licenses/LICENSE-2.0.html">Apache License 2.0</a></p>
 </div>
 </div>
@@ -490,14 +498,58 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <div class="sectionbody">
 <div class="paragraph">
 <p>Plugin Id: org.infosmid.plugins.kfsm-viz
-Version: 2.0.0</p>
+Version: 2.0.2</p>
 </div>
 <div class="sect2">
-<h3 id="gradle-groovy-dsl">Gradle Groovy DSL</h3>
+<h3 id="groovy-dsl-build-gradle">Groovy DSL (<code>build.gradle</code>)</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">plugins {
-    id 'org.infosmid.plugins.kfsm-viz' version '2.0.0'
+    id 'org.infosmid.plugins.kfsm-viz' version '2.0.2'
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kotlin-dsl-build-gradle-kts">Kotlin DSL (<code>build.gradle.kts</code>)</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">plugins {
+    id("org.infosmid.plugins.kfsm-viz") version "2.0.2"
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="version-catalog-gradlelibs-versions-toml">Version Catalog (<code>gradle/libs.versions.toml</code>)</h3>
+<div class="paragraph">
+<p>Declare the plugin in the catalog:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-toml" data-lang="toml">[versions]
+kfsm-viz-plugin = "2.0.2"
+
+[plugins]
+infosmid-kfsm-viz = { id = "org.infosmid.plugins.kfsm-viz", version.ref = "kfsm-viz-plugin" }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then reference it through the generated <code>libs</code> accessor.</p>
+</div>
+<div class="listingblock">
+<div class="title">Groovy DSL (<code>build.gradle</code>)</div>
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">plugins {
+    alias(libs.plugins.infosmid.kfsm.viz)
+}</code></pre>
+</div>
+</div>
+<div class="listingblock">
+<div class="title">Kotlin DSL (<code>build.gradle.kts</code>)</div>
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">plugins {
+    alias(libs.plugins.infosmid.kfsm.viz)
 }</code></pre>
 </div>
 </div>
@@ -508,7 +560,7 @@ Version: 2.0.0</p>
 <h2 id="configuration">Configuration</h2>
 <div class="sectionbody">
 <div class="sect2">
-<h3 id="gradle-groovy-dsl-2">Gradle Groovy DSL</h3>
+<h3 id="groovy-dsl-build-gradle-2">Groovy DSL (<code>build.gradle</code>)</h3>
 <div class="listingblock">
 <div class="content">
 <pre class="highlight"><code class="language-groovy" data-lang="groovy">kfsmViz {
@@ -552,6 +604,25 @@ Version: 2.0.0</p>
 <p><code>asciidocName: String</code>: Optional name of Asciidoc output file. Default is <code>$output.adoc</code></p>
 </li>
 </ol>
+</div>
+</div>
+<div class="sect2">
+<h3 id="kotlin-dsl-build-gradle-kts-2">Kotlin DSL (<code>build.gradle.kts</code>)</h3>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">kfsmViz {
+    fsm("PacketReaderFSM") {
+        input = file("src/main/kotlin/PacketReader.kt")
+        isGeneratePlantUml = true
+        isGenerateMermaid = true
+        isGenerateAsciidoc = true
+        output = "packet-reader"
+        outputFolder = file("generated")
+        plantUmlName = "packet-reader-state-diagram.plantuml"
+        asciidocName = "packet-reader-state-table.adoc"
+    }
+}</code></pre>
+</div>
 </div>
 </div>
 <div class="sect2">
@@ -602,9 +673,18 @@ Version: 2.0.0</p>
 <div class="sect2">
 <h3 id="turnstilefsm">TurnstileFSM</h3>
 <div class="sect3">
-<h4 id="turnstile-state-diagram">Turnstile State Diagram</h4>
+<h4 id="turnstile-state-diagrams">Turnstile State Diagrams</h4>
+<div class="sect4">
+<h5 id="plantuml">PlantUML</h5>
 <div class="paragraph">
-<p><span class="image"><img src="turnstile.svg" alt="turnstile"></span></p>
+<p><span class="image"><img src="turnstile.svg" alt="turnstile" width="60%"></span></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="mermaid">Mermaid</h5>
+<div class="paragraph">
+<p><span class="image"><img src="turnstile-mmd.svg" alt="turnstile mmd" width="60%"></span></p>
+</div>
 </div>
 </div>
 </div>
@@ -680,8 +760,17 @@ lock()
 <h3 id="packetreaderfsm">PacketReaderFSM</h3>
 <div class="sect3">
 <h4 id="packetreader-state-diagram">PacketReader State Diagram</h4>
+<div class="sect4">
+<h5 id="plantuml-2">PlantUML</h5>
 <div class="paragraph">
-<p><span class="image"><img src="packet-reader.svg" alt="packet reader"></span></p>
+<p><span class="image"><img src="packet-reader.svg" alt="packet reader" width="90%"></span></p>
+</div>
+</div>
+<div class="sect4">
+<h5 id="mermaid-2">Mermaid</h5>
+<div class="paragraph">
+<p><span class="image"><img src="packet-reader-mmd.svg" alt="packet reader mmd" width="90%"></span></p>
+</div>
 </div>
 </div>
 </div>
@@ -878,8 +967,18 @@ addChecksum(byte)
 <h3 id="timeoutsecureturnstilefsm">TimeoutSecureTurnstileFSM</h3>
 <div class="sect3">
 <h4 id="timeoutsecureturnstile-state-diagram">TimeoutSecureTurnstile State Diagram</h4>
+
+</div>
+<div class="sect3">
+<h4 id="plantuml-3">PlantUML</h4>
 <div class="paragraph">
-<p><span class="image"><img src="secure-turnstile.svg" alt="secure turnstile"></span></p>
+<p><span class="image"><img src="secure-turnstile.svg" alt="secure turnstile" width="90%"></span></p>
+</div>
+<div class="sect4">
+<h5 id="mermaid-3">Mermaid</h5>
+<div class="paragraph">
+<p><span class="image"><img src="secure-turnstile-mmd.svg" alt="secure turnstile mmd" width="90%"></span></p>
+</div>
 </div>
 </div>
 </div>
@@ -907,7 +1006,7 @@ addChecksum(byte)
 </thead>
 <tbody>
 <tr>
-<td class="tableblock halign-left valign-top"><p class="tableblock"><a href="#start">[start]</a></p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">&lt;&lt;start&gt;&gt;</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">UNLOCKED</p></td>
 <td class="tableblock halign-left valign-top"><div class="content"></div></td>
@@ -1045,7 +1144,7 @@ lock()
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-10-23 17:18:23 +0200
+Last updated 2026-10-29 09:24:21 +0200
 </div>
 </div>
 </body>

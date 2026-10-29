@@ -1,5 +1,5 @@
 [versions]
-localProperties = "1.0.1"
+local-properties = "1.0.2"
 
 [plugins]
-local-properties = { id = "io.jumpco.open.gradle.local-properties", version.ref = "localProperties" }
+infosmid-local-properties = { id = "org.infosmid.plugins.local-properties", version.ref = "local-properties" }

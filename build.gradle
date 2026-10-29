@@ -1,12 +1,14 @@
+import groovy.json.JsonSlurper
+
 plugins {
     // Loads gradle.local.properties (github.user, github.token) as project properties.
-    alias(libs.plugins.local.properties)
+    alias(libs.plugins.infosmid.local.properties)
 }
 
 // data/projects.json drives both the docs fetch and the landing page. Read through a provider so that a
 // change to the file is tracked as a configuration input and invalidates the configuration cache.
 def projectsFile = layout.projectDirectory.file('data/projects.json')
-def allProjects = new groovy.json.JsonSlurper()
+def allProjects = new JsonSlurper()
         .parseText(providers.fileContents(projectsFile).asText.get()).projects
 // projects flagged "fetch": true have a <name>-doc artefact of the given "version" on GitHub Packages
 def fetchProjects = allProjects.findAll { it.fetch }

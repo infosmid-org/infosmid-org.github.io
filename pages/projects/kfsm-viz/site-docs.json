@@ -1,7 +1,7 @@
 {
     "name": "kfsm-viz",
     "group": "org.infosmid",
-    "version": "2.0.1",
+    "version": "2.0.2",
     "title": "KFSM Visualization",
     "summary": "Visualization library for KFSM finite state-machine definitions",
     "license": "Apache-2.0",
