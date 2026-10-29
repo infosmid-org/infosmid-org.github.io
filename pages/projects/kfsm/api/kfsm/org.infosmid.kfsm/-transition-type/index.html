@@ -107,7 +107,7 @@
   <div class="breadcrumbs"><a href="../../../index.html">kfsm</a><span class="delimiter">/</span><a href="../index.html">org.infosmid.kfsm</a><span class="delimiter">/</span><span class="current">TransitionType</span></div>
   <div class="cover ">
     <h1 class="cover"><span>Transition</span><wbr></wbr><span><span>Type</span></span></h1>
-    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">TransitionType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">TransitionType</a><span class="token operator">&gt; </span></div><p class="paragraph">Represents the different kinds of transitions.</p></div></div>
+    <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><span class="token keyword">enum </span><a href="index.html">TransitionType</a> : <a href="https://kotlinlang.org/api/core/kotlin-stdlib/kotlin/-enum/index.html">Enum</a><span class="token operator">&lt;</span><a href="index.html">TransitionType</a><span class="token operator">&gt; </span></div><p class="paragraph">The kinds of transition.</p></div></div>
   </div>
   <div class="tabbedcontent">
     <div class="tabs-section" tabs-section="tabs-section"><button class="section-tab" data-active="" data-togglable="CONSTRUCTOR,TYPE,PROPERTY,FUNCTION">Members</button><button class="section-tab" data-togglable="ENTRY">Entries</button></div>
@@ -124,7 +124,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-n-o-r-m-a-l/index.html">NORMAL</a></div></div><div class="brief "><p class="paragraph">Transitions are triggered and may change to a new state or remain at the same state while performing an action.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-n-o-r-m-a-l/index.html">NORMAL</a></div></div><div class="brief "><p class="paragraph">An event triggers the transition. The transition can change the state or keep the same state. It can run an action.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -139,7 +139,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-s-h/index.html">PUSH</a></div></div><div class="brief "><p class="paragraph">A push transition will place the current state map on a stack and make the named statemap the current map and change to the given state,</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-u-s-h/index.html">PUSH</a></div></div><div class="brief "><p class="paragraph">A push transition puts the current state map on the stack. The named state map becomes the current state map, and the state changes to the target state.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -154,7 +154,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-o-p/index.html">POP</a></div></div><div class="brief "><p class="paragraph">A pop transition will pop the stack and make the transition current. If the pop transition provided a new targetMap or targetState that will result in push or normal transition behaviour.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-p-o-p/index.html">POP</a></div></div><div class="brief "><p class="paragraph">A pop transition removes the current state map from the stack. The previous state map becomes the current state map. If the pop transition has a target map or a target state, a push transition or a normal transition follows.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -169,7 +169,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-d-e-f-a-u-l-t/index.html">DEFAULT</a></div></div><div class="brief "><p class="paragraph">A default transition will take place when no configured state/event pair matches.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-d-e-f-a-u-l-t/index.html">DEFAULT</a></div></div><div class="brief "><p class="paragraph">A default transition runs when no configured state and event pair matches.</p></div></div></div>
                 </div>
               </div>
             </div>
@@ -184,7 +184,7 @@
                   </span></span></div>
               <div>
                 <div class="title">
-                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-t-i-m-e-o-u-t/index.html">TIMEOUT</a></div></div><div class="brief "><p class="paragraph">A timeout may trigger a transition if the timeout occurs. The timeout will be cancelled when the state exit action is triggered.</p></div></div></div>
+                  <div class="platform-hinted " data-platform-hinted="data-platform-hinted"><div class="content sourceset-dependent-content" data-active="" data-togglable=":/commonMain"><div class="symbol monospace"><div class="block"><a href="-t-i-m-e-o-u-t/index.html">TIMEOUT</a></div></div><div class="brief "><p class="paragraph">A timeout transition runs when the configured time expires after the state is entered. The state machine cancels the timeout when it runs the exit action of the state.</p></div></div></div>
                 </div>
               </div>
             </div>

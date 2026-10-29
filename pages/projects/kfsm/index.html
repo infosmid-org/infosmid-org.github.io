@@ -449,6 +449,74 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#features">Features</a></li>
+<li><a href="#getting-started">Getting Started</a>
+<ul class="sectlevel2">
+<li><a href="#repository">Repository</a></li>
+<li><a href="#dependencies">Dependencies</a>
+<ul class="sectlevel3">
+<li><a href="#kotlin-multiplatform-build-gradle-kts">Kotlin Multiplatform (<code>build.gradle.kts</code>)</a></li>
+<li><a href="#kotlin-multiplatform-build-gradle-groovy-dsl">Kotlin Multiplatform (<code>build.gradle</code> - Groovy DSL)</a></li>
+<li><a href="#single-platform-jvm-android">Single Platform (JVM / Android)</a></li>
+<li><a href="#gradle-version-catalog-gradlelibs-versions-toml">Gradle version catalog (<code>gradle/libs.versions.toml</code>)</a></li>
+<li><a href="#kotlin-multiplatform">Kotlin Multiplatform</a></li>
+<li><a href="#single-platform">Single Platform</a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#finite-state-machines">Finite State Machines</a>
+<ul class="sectlevel2">
+<li><a href="#terms">Terms</a></li>
+<li><a href="#definition">Definition</a></li>
+<li><a href="#instance">Instance</a>
+<ul class="sectlevel3">
+<li><a href="#initial-state">Initial State</a></li>
+</ul>
+</li>
+<li><a href="#named-maps-and-push-pop-transitions">Named Maps and Push / Pop Transitions</a></li>
+</ul>
+</li>
+<li><a href="#dsl">DSL</a>
+<ul class="sectlevel2">
+<li><a href="#statemachine"><code>stateMachine</code></a></li>
+<li><a href="#functionalstatemachine"><code>functionalStateMachine</code></a></li>
+<li><a href="#asyncstatemachine"><code>asyncStateMachine</code></a></li>
+<li><a href="#asyncfunctionalstatemachine"><code>asyncFunctionalStateMachine</code></a></li>
+<li><a href="#default"><code>default</code></a>
+<ul class="sectlevel3">
+<li><a href="#action"><code>action</code></a></li>
+<li><a href="#onentry"><code>onEntry</code></a></li>
+<li><a href="#onexit"><code>onExit</code></a></li>
+<li><a href="#onevent"><code>onEvent</code></a></li>
+</ul>
+</li>
+<li><a href="#initialstate"><code>initialState</code></a></li>
+<li><a href="#initialstates"><code>initialStates</code></a></li>
+<li><a href="#onstatechange"><code>onStateChange</code></a></li>
+<li><a href="#whenstate"><code>whenState</code></a>
+<ul class="sectlevel3">
+<li><a href="#default-2"><code>default</code></a></li>
+<li><a href="#onentry-2"><code>onEntry</code></a></li>
+<li><a href="#onexit-2"><code>onExit</code></a></li>
+<li><a href="#automatic"><code>automatic</code></a></li>
+<li><a href="#automaticpop"><code>automaticPop</code></a></li>
+<li><a href="#automaticpush"><code>automaticPush</code></a></li>
+<li><a href="#onevent-2"><code>onEvent</code></a></li>
+<li><a href="#oneventpush"><code>onEventPush</code></a></li>
+<li><a href="#oneventpop"><code>onEventPop</code></a></li>
+<li><a href="#timeout"><code>timeout</code></a></li>
+<li><a href="#timeoutpop"><code>timeoutPop</code></a></li>
+<li><a href="#timeoutpush"><code>timeoutPush</code></a></li>
+</ul>
+</li>
+</ul>
+</li>
+<li><a href="#operation">Operation</a>
+<ul class="sectlevel2">
+<li><a href="#send-event">Send Event</a></li>
+<li><a href="#notes-on-concurrency-and-coroutines">Notes on Concurrency and Coroutines</a></li>
+</ul>
+</li>
 <li><a href="#tutorial">Tutorial</a>
 <ul class="sectlevel2">
 <li><a href="#simple-turnstile-example">Simple turnstile example</a>
@@ -491,17 +559,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <li><a href="#immutable-context-example">Immutable Context Example</a>
 <ul class="sectlevel3">
 <li><a href="#immutable-context">Immutable Context</a></li>
-<li><a href="#definition">Definition</a></li>
+<li><a href="#definition-2">Definition</a></li>
 <li><a href="#usage-2">Usage</a></li>
 </ul>
 </li>
 <li><a href="#secure-turnstile-with-timeout-example">Secure Turnstile with Timeout Example</a>
 <ul class="sectlevel3">
 <li><a href="#state-table-4">State Table</a></li>
-</ul>
-</li>
-<li><a href="#timersecureturnstilefsm-state-map">TimerSecureTurnstileFSM State Map</a>
-<ul class="sectlevel3">
 <li><a href="#context-class-4">Context class</a></li>
 <li><a href="#states-and-events-4">States and Events</a></li>
 <li><a href="#state-machine-definition-packaged-3">State machine definition packaged</a></li>
@@ -509,68 +573,6 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 </ul>
 </li>
 <li><a href="#further-thoughts">Further thoughts</a></li>
-</ul>
-</li>
-<li><a href="#getting-started">Getting Started</a>
-<ul class="sectlevel2">
-<li><a href="#repository">Repository</a></li>
-<li><a href="#dependencies">Dependencies</a>
-<ul class="sectlevel3">
-<li><a href="#kotlinjvm-projects">Kotlin/JVM Projects</a></li>
-<li><a href="#kotlinjs-projects">KotlinJS Projects</a></li>
-<li><a href="#kotlinnative-projects-using-linuxx64">Kotlin/Native Projects using LinuxX64</a></li>
-<li><a href="#kotlinnative-projects-using-mingw64">Kotlin/Native Projects using MinGW64</a></li>
-<li><a href="#kotlinnative-projects-using-macos">Kotlin/Native Projects using macOS</a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#finite-state-machines">Finite state machines.</a>
-<ul class="sectlevel2">
-<li><a href="#definition-2">Definition</a></li>
-<li><a href="#instance">Instance</a></li>
-<li><a href="#named-maps-and-push-pop-transitions">Named Maps and Push / Pop Transitions</a></li>
-</ul>
-</li>
-<li><a href="#dsl">DSL</a>
-<ul class="sectlevel2">
-<li><a href="#statemachine"><code>stateMachine</code></a></li>
-<li><a href="#functionalstatemachine"><code>functionalStateMachine</code></a></li>
-<li><a href="#asyncstatemachine"><code>asyncStateMachine</code></a></li>
-<li><a href="#asyncfunctionalstatemachine"><code>asyncFunctionalStateMachine</code></a></li>
-<li><a href="#default"><code>default</code></a>
-<ul class="sectlevel3">
-<li><a href="#action"><code>action</code></a></li>
-<li><a href="#onentry"><code>onEntry</code></a></li>
-<li><a href="#onexit"><code>onExit</code></a></li>
-<li><a href="#onevent"><code>onEvent</code></a></li>
-</ul>
-</li>
-<li><a href="#initialstate"><code>initialState</code></a></li>
-<li><a href="#initialstates"><code>initialStates</code></a></li>
-<li><a href="#onstatechange"><code>onStateChange</code></a></li>
-<li><a href="#whenstate"><code>whenState</code></a>
-<ul class="sectlevel3">
-<li><a href="#default-2"><code>default</code></a></li>
-<li><a href="#onentry-2"><code>onEntry</code></a></li>
-<li><a href="#onexit-2"><code>onExit</code></a></li>
-<li><a href="#automatic"><code>automatic</code></a></li>
-<li><a href="#automaticpop"><code>automaticPop</code></a></li>
-<li><a href="#automaticpush"><code>automaticPush</code></a></li>
-<li><a href="#onevent-2"><code>onEvent</code></a></li>
-<li><a href="#oneventpush"><code>onEventPush</code></a></li>
-<li><a href="#oneventpop"><code>onEventPop</code></a></li>
-<li><a href="#timeout"><code>timeout</code></a></li>
-<li><a href="#timeoutpop"><code>timeoutPop</code></a></li>
-<li><a href="#timeoutpush"><code>timeoutPush</code></a></li>
-</ul>
-</li>
-</ul>
-</li>
-<li><a href="#operation">Operation</a>
-<ul class="sectlevel2">
-<li><a href="#send-event">Send Event</a></li>
-<li><a href="#notes-on-concurrency-and-coroutines">Notes on concurrency and coroutines.</a></li>
 </ul>
 </li>
 </ul>
@@ -581,11 +583,13 @@ body.book #toc,body.book #preamble,body.book h1.sect0,body.book .sect1>h2{page-b
 <h2 id="introduction">Introduction</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>Having used various incarnations of <a href="http://smc.sourceforge.net/">SMC</a> over the years we decided to try it again and discovered it didn&#8217;t have specific support for Kotlin.
-Instead of creating a generator for Kotlin we decided to attempt a Kotlin DSL along with a simple implementation.</p>
+<p>We have used <a href="http://smc.sourceforge.net/">SMC</a> for many years.
+When we tried it again, it had no specific support for Kotlin.
+We did not create a code generator for Kotlin.
+Instead, we made a Kotlin DSL and a simple implementation.</p>
 </div>
 <div class="paragraph">
-<p>To learn more about Finite State Machines visit:</p>
+<p>To learn more about finite state machines, see:</p>
 </div>
 <div class="ulist">
 <ul>
@@ -601,7 +605,7 @@ Instead of creating a generator for Kotlin we decided to attempt a Kotlin DSL al
 </ul>
 </div>
 <div class="paragraph">
-<p>The <a href="#tutorial">Tutorial</a> provides examples of how to compose a DSL and FSM.</p>
+<p>The <a href="#tutorial">Tutorial</a> has examples that show how to write a state machine definition with the DSL.</p>
 </div>
 </div>
 </div>
@@ -622,56 +626,1638 @@ Instead of creating a generator for Kotlin we decided to attempt a Kotlin DSL al
 <h2 id="features">Features</h2>
 <div class="sectionbody">
 <div class="paragraph">
-<p>This Finite state machine implementation has the following features:</p>
+<p>kfsm has these features:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>Event driven state machine.</p>
+<p>Event-driven state machine.</p>
 </li>
 <li>
-<p>External and internal transitions</p>
+<p>External transitions and internal transitions.</p>
 </li>
 <li>
-<p>State entry and exit actions.</p>
+<p>Entry actions and exit actions for each state.</p>
 </li>
 <li>
-<p>Default state actions.</p>
+<p>Default actions for each state.</p>
 </li>
 <li>
-<p>Default entry and exit actions.</p>
+<p>Default entry actions and default exit actions.</p>
 </li>
 <li>
-<p>Determine allowed events for current or given state.</p>
+<p>A query for the events that the current state or a given state allows.</p>
 </li>
 <li>
-<p>Multiple state maps with push / pop transitions</p>
+<p>Multiple state maps with push transitions and pop transitions.</p>
 </li>
 <li>
-<p>Automatic transitions</p>
+<p>Automatic transitions.</p>
 </li>
 <li>
-<p>Externalisation of state.</p>
+<p>Externalized state.</p>
 </li>
 <li>
-<p>Simple Visualization.</p>
+<p>Simple visualization.</p>
 </li>
 <li>
-<p>Detailed Visualization.</p>
+<p>Detailed visualization.</p>
 </li>
 <li>
-<p>Visualization Gradle Plugin</p>
+<p>Visualization Gradle plugin.</p>
 </li>
 <li>
-<p>Coroutines</p>
+<p>Coroutines.</p>
 </li>
 <li>
-<p>Timeout Transitions</p>
+<p>Timeout transitions.</p>
 </li>
 <li>
-<p>StateChange notification action</p>
+<p>State change notification action.</p>
 </li>
 </ul>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="getting-started">Getting Started</h2>
+<div class="sectionbody">
+<div class="sect2">
+<h3 id="repository">Repository</h3>
+<div class="paragraph">
+<p>Releases are on Maven Central.
+Snapshots are in the GitHub Packages Maven repository.
+Contact us for a personal access token (PAT) to get snapshot releases.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="dependencies">Dependencies</h3>
+<div class="sect3">
+<h4 id="kotlin-multiplatform-build-gradle-kts">Kotlin Multiplatform (<code>build.gradle.kts</code>)</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">repositories {
+    mavenCentral()
+}
+
+kotlin {
+    sourceSets {
+        commonMain.dependencies {
+            implementation("org.infosmid:kfsm:2.0.0")
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="kotlin-multiplatform-build-gradle-groovy-dsl">Kotlin Multiplatform (<code>build.gradle</code> - Groovy DSL)</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">repositories {
+    mavenCentral()
+}
+
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation 'org.infosmid:kfsm:2.0.0'
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="single-platform-jvm-android">Single Platform (JVM / Android)</h4>
+<div class="sect4">
+<h5 id="kotlin-dsl-build-gradle-kts">Kotlin DSL (<code>build.gradle.kts</code>)</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation("org.infosmid:kfsm:2.0.0")
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect4">
+<h5 id="groovy-dsl-build-gradle">Groovy DSL (<code>build.gradle</code>)</h5>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation 'org.infosmid:kfsm:2.0.0'
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="gradle-version-catalog-gradlelibs-versions-toml">Gradle version catalog (<code>gradle/libs.versions.toml</code>)</h4>
+<div class="paragraph">
+<p>Declare the library in the version catalog:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-toml" data-lang="toml">[versions]
+kfsm = "2.0.0"
+
+[libraries]
+infosmid-kfsm = { module = "org.infosmid:kfsm", version.ref = "kfsm" }</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>Then use the catalog accessor in the build script.</p>
+</div>
+<div class="paragraph">
+<p>For Kotlin Multiplatform</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="kotlin-multiplatform">Kotlin Multiplatform</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">repositories {
+    mavenCentral()
+}
+
+kotlin {
+    sourceSets {
+        commonMain {
+            dependencies {
+                implementation(libs.infosmid.kfsm)
+            }
+        }
+    }
+}</code></pre>
+</div>
+</div>
+<div class="paragraph">
+<p>For a single platform (JVM / Android)</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="single-platform">Single Platform</h4>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-groovy" data-lang="groovy">repositories {
+    mavenCentral()
+}
+
+dependencies {
+    implementation(libs.infosmid.kfsm)
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="finite-state-machines">Finite State Machines</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>This section describes the life cycle and the design of kfsm.</p>
+</div>
+<div class="sect2">
+<h3 id="terms">Terms</h3>
+<div class="paragraph">
+<p>Some terms have a specific meaning in kfsm.
+Use this list to avoid confusion with other meanings of the same words.</p>
+</div>
+<div class="dlist">
+<dl>
+<dt class="hdlist1">State machine</dt>
+<dd>
+<p>The object that processes events.
+In this document, <em>state machine</em> means a state machine that you define with kfsm.
+<code>FSM</code> is the short form that code and diagrams use.</p>
+</dd>
+<dt class="hdlist1">State (<code>S</code>)</dt>
+<dd>
+<p>A value that describes the situation of the context.
+A state can be any value that has <code>equals</code> and <code>hashCode</code>.
+Most examples use an <code>enum class</code>.</p>
+</dd>
+<dt class="hdlist1">Event (<code>E</code>)</dt>
+<dd>
+<p>A value that you send to the state machine.
+An event can cause a transition.
+Like a state, an event is any value that has <code>equals</code> and <code>hashCode</code>.</p>
+</dd>
+<dt class="hdlist1">Argument (<code>A</code>)</dt>
+<dd>
+<p>A value that you send together with an event.
+All events of one state machine have the same argument type.
+This is not a Kotlin function argument.</p>
+</dd>
+<dt class="hdlist1">Return value (<code>R</code>)</dt>
+<dd>
+<p>The value that <code>sendEvent</code> returns.
+It is the result of the action that ran.</p>
+</dd>
+<dt class="hdlist1">Context (<code>C</code>)</dt>
+<dd>
+<p>The object that the actions operate on.
+The action lambdas use the context as <code>this</code>.
+This is not a <code>CoroutineContext</code>.</p>
+</dd>
+<dt class="hdlist1">Action</dt>
+<dd>
+<p>A lambda that the state machine runs during a transition.
+An action is not a user interface action or an event.</p>
+</dd>
+<dt class="hdlist1">Transition</dt>
+<dd>
+<p>The change that an event causes.
+A transition can run actions and can change the state.</p>
+</dd>
+<dt class="hdlist1">External transition</dt>
+<dd>
+<p>A transition that has a target state.
+The state machine runs the exit action and the entry action.
+This is true also when the target state is the same as the current state.</p>
+</dd>
+<dt class="hdlist1">Internal transition</dt>
+<dd>
+<p>A transition that has no target state.
+The state stays the same.
+The state machine does not run the exit action or the entry action.</p>
+</dd>
+<dt class="hdlist1">Guard expression</dt>
+<dd>
+<p>A lambda that returns a <code>Boolean</code>.
+A transition that has a guard expression occurs only when the guard returns <code>true</code>.</p>
+</dd>
+<dt class="hdlist1">Entry action and exit action</dt>
+<dd>
+<p>Actions that run for an external transition.
+The exit action runs for the current state.
+The entry action runs for the target state.</p>
+</dd>
+<dt class="hdlist1">Default action</dt>
+<dd>
+<p>An action that runs when no transition matches the current state and the event.
+This is not the default value of a Kotlin parameter.</p>
+</dd>
+<dt class="hdlist1">State map</dt>
+<dd>
+<p>A group of states with their transitions and actions.
+This is not a Kotlin <code>Map</code>.
+A state machine has one top-level state map and can have named state maps.</p>
+</dd>
+<dt class="hdlist1">Default state map</dt>
+<dd>
+<p>The top-level state map.
+Its name is <code>default</code>.</p>
+</dd>
+<dt class="hdlist1">Push transition and pop transition</dt>
+<dd>
+<p>Transitions that change the current state map.
+A push transition puts the current state map on a stack and makes a named state map current.
+A pop transition removes the current state map from the stack.
+The previous state map becomes current.</p>
+</dd>
+<dt class="hdlist1">Automatic transition</dt>
+<dd>
+<p>A transition that has no event.
+The state machine selects it after another transition completes.</p>
+</dd>
+<dt class="hdlist1">Timeout transition</dt>
+<dd>
+<p>A transition that has no event.
+It occurs when a configured time expires after the state machine enters the state.
+Only asynchronous state machines have timeout transitions.</p>
+</dd>
+<dt class="hdlist1">Definition</dt>
+<dd>
+<p>The immutable description of a state machine.
+You can share one definition.</p>
+</dd>
+<dt class="hdlist1">Instance</dt>
+<dd>
+<p>A state machine that you create from a definition.
+An instance has a context and a current state.</p>
+</dd>
+<dt class="hdlist1">Externalized state</dt>
+<dd>
+<p>A list of pairs of a state and a state map name.
+You can store it and use it to create an instance later.</p>
+</dd>
+<dt class="hdlist1">Invariant</dt>
+<dd>
+<p>A condition that must be <code>true</code> before and after every transition.</p>
+</dd>
+</dl>
+</div>
+</div>
+<div class="sect2">
+<h3 id="definition">Definition</h3>
+<div class="paragraph">
+<p>You define a state machine with a DSL, as this document describes.</p>
+</div>
+<div class="paragraph">
+<p>In the definition, you describe:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The types of the states and the events.</p>
+</li>
+<li>
+<p>The behavior of the state machine for each event.</p>
+</li>
+<li>
+<p>How the actions operate on the context.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>State types and event types must be value types.
+They must have <code>equals</code> and <code>hashCode</code>.
+An <code>enum class</code> is a good choice, but it is not necessary.</p>
+</div>
+<div class="paragraph">
+<p>When <code>kfsm-viz</code> creates a state diagram, it uses the states <code>START</code> and <code>END</code> as the start state and the end state.</p>
+</div>
+<div class="paragraph">
+<p>An event can have an argument and can return a value.
+The argument type is the same for all events.
+To send different types of arguments, use a sealed class as the argument type.</p>
+</div>
+<div class="paragraph">
+<p>A state machine has one or more state maps.
+Each state map has a subset of the states.</p>
+</div>
+<div class="paragraph">
+<p>The definition lists the events of the state machine.</p>
+</div>
+<div class="paragraph">
+<p>The state machine applies actions to a context.
+The context represents the work that the state machine does.</p>
+</div>
+<div class="paragraph">
+<p>An event can cause a transition.
+A transition defines the actions that the state machine runs when it is in a specific state.</p>
+</div>
+<div class="paragraph">
+<p>A transition can have a guard expression.
+The transition occurs only when the guard returns <code>true</code>.</p>
+</div>
+<div class="paragraph">
+<p>An automatic transition belongs to a state and has no event.
+The state machine selects an automatic transition after another transition completes and the state is the current state.</p>
+</div>
+<div class="paragraph">
+<p>A timeout transition belongs to a state.
+It occurs when a configured time expires after the state machine enters the state.
+If the transition has a guard expression, the guard must return <code>true</code>.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="instance">Instance</h3>
+<div class="paragraph">
+<p>You create an instance from a definition.
+You give the instance a context.
+You can also give it an externalized state.
+The definition can also derive the current state from the context.</p>
+</div>
+<div class="paragraph">
+<p>You send events to the instance.
+If the event needs an argument, you send it together with the event.
+An event can cause the state machine to run actions.</p>
+</div>
+<div class="paragraph">
+<p>You can ask the instance which events the current state allows.
+You can also ask for the events of a given state.
+Use this to disable controls in a user interface.
+A back-end application that uses HATEOAS can use it to add only the links for allowed events.</p>
+</div>
+<div class="paragraph">
+<p>If a state machine has timeout transitions, the instance must stay active.
+This is usually necessary only in user interface applications and in embedded interactive applications.</p>
+</div>
+<div class="paragraph">
+<p>In a stateless environment, requests or events drive the application.
+If the state is not derived from the context, externalize the state after you use the instance.
+The externalized state is a list of pairs.
+Each pair has a state and the name of its state map.</p>
+</div>
+<div class="sect3">
+<h4 id="initial-state">Initial State</h4>
+<div class="paragraph">
+<p>An instance needs an initial state.
+The state machine uses the first of these that is available:</p>
+</div>
+<div class="olist arabic">
+<ol class="arabic">
+<li>
+<p>The externalized state that you give to <code>create</code>.</p>
+</li>
+<li>
+<p>The <code>initialStates</code> expression.</p>
+</li>
+<li>
+<p>The initial state that you give to <code>create</code>.</p>
+</li>
+<li>
+<p>The <code>initialState</code> expression.</p>
+</li>
+<li>
+<p>The <code>defaultInitialState</code>.</p>
+</li>
+</ol>
+</div>
+<div class="paragraph">
+<p>If none is available, <code>create</code> throws an exception.</p>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="named-maps-and-push-pop-transitions">Named Maps and Push / Pop Transitions</h3>
+<div class="paragraph">
+<p>A named state map is a group of states.
+A push transition goes to a named state map.
+A pop transition returns from it.</p>
+</div>
+<div class="paragraph">
+<p>A push transition needs:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The name of the target state map.</p>
+</li>
+<li>
+<p>The target state.</p>
+</li>
+<li>
+<p>The event, as for a normal transition.</p>
+</li>
+<li>
+<p>Optionally, a guard expression and an action.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>When a push transition occurs, the state machine puts the current state map on a stack.
+Then it creates an instance of the named state map.
+This instance becomes the current state map.
+The state machine processes events with the transition rules of the current state map.</p>
+</div>
+<div class="paragraph">
+<p>A pop transition removes the current state map from the stack.
+The previous state map becomes the current state map.
+If the pop transition has a target state, the state of the previous state map changes to the target state.
+If the pop transition has a target map, a push transition follows.</p>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="dsl">DSL</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>The DSL is the way to configure a state machine.
+It supports:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>Internal transitions and external transitions.</p>
+<div class="ulist">
+<ul>
+<li>
+<p>A transition is external when it has a target state, also when the target state is the same as the current state.</p>
+</li>
+</ul>
+</div>
+</li>
+<li>
+<p>Guard expressions.</p>
+</li>
+<li>
+<p>Entry actions and exit actions for each state and for all states.</p>
+</li>
+<li>
+<p>Default actions for each state and for all states.</p>
+</li>
+<li>
+<p>Named state maps.</p>
+</li>
+<li>
+<p>Push transitions and pop transitions.</p>
+</li>
+<li>
+<p>Automatic transitions.</p>
+</li>
+<li>
+<p>Timeout transitions.</p>
+</li>
+<li>
+<p>Actions that are <code>suspend</code> functions.</p>
+</li>
+<li>
+<p>An invariant. The state machine checks the invariant for all events. If the invariant is not <code>true</code>, it throws an <code>InvariantException</code>.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>All configuration calls are applied to <a href="javadoc/kfsm/org.infosmid.kfsm/-state-machine-builder/index.html">StateMachineBuilder</a>.</p>
+</div>
+<div class="sect2">
+<h3 id="statemachine"><code>stateMachine</code></h3>
+<div class="paragraph">
+<p>The top-level element is <code>stateMachine</code>.
+Use one of these functions:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="javadoc/kfsm/org.infosmid.kfsm/-state-machine-builder/state-machine.html">StateMachineBuilder::stateMachine</a></p>
+</li>
+<li>
+<p><a href="javadoc/kfsm/org.infosmid.kfsm/state-machine.html">stateMachine</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Two more overloads of <code>stateMachine</code> use <code>Any</code> as the return type and as the argument type.
+Use them when the state machine does not use the argument or the return value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// using global function
+val definition = stateMachine(
+    State.values().toSet(),
+    Event.values().toSet(),
+    ContextType::class,
+    ArgType::class,
+    ReturnType::class
+) {
+    defaultInitialState = State.S1 // optional start state
+    invariant { } // invariant for stateMachine
+    default { // global defaults
+    }
+    initialState { // initial state expression
+    }
+    initialStates { // define expression for deriving state stack for nested maps.
+    }
+    onStateChange { // define an event handler to be invoked after a transition when the state has changed.
+
+    }
+    stateMap { // define named statemap
+    }
+    whenState { // state definition
+    }
+}.build()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="functionalstatemachine"><code>functionalStateMachine</code></h3>
+<div class="paragraph">
+<p>The top-level element is <code>functionalStateMachine</code>.
+Use this function:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="javadoc/kfsm/org.infosmid.kfsm/functional-state-machine.html">functionalStateMachine</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>It is the same as <code>stateMachine</code>, but the context type, the argument type and the return type are the same type.
+Use it with an immutable context.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// using global function
+val definition = functionalStateMachine(
+    State.values().toSet(),
+    Event.values().toSet(),
+    ContextType::class
+) {
+    defaultInitialState = State.S1 // optional start state
+    invariant { } // invariant for stateMachine
+    default { // global defaults
+    }
+    initialState { // initial state expression
+    }
+    initialStates { // define expression for deriving state stack for nested maps.
+    }
+    onStateChange { // define an event handler to be invoked after a transition when the state has changed.
+
+    }
+    stateMap { // define named statemap
+    }
+    whenState { // state definition
+    }
+}.build()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="asyncstatemachine"><code>asyncStateMachine</code></h3>
+<div class="paragraph">
+<p>Use <code>asyncStateMachine</code> to create a definition where the actions are <code>suspend</code> functions.
+It also adds the timeout transitions to the state map handlers.
+To create an instance from the definition, give it a <code>CoroutineScope</code>.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="javadoc/kfsm/org.infosmid.kfsm.async/async-state-machine.html">asyncStateMachine</a></p>
+</li>
+<li>
+<p><a href="javadoc/kfsm/org.infosmid.kfsm.async/-async-state-machine-builder/state-machine.html">AsyncStateMachineBuilder::stateMachine</a></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Two more overloads of <code>asyncStateMachine</code> use <code>Any</code> as the return type and as the argument type.
+Use them when the state machine does not use the argument or the return value.</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// using global function
+val definition = asyncStateMachine(
+    State.values().toSet(),
+    Event.values().toSet(),
+    ContextType::class,
+    ArgType::class,
+    ReturnType::class
+) {
+    defaultInitialState = State.S1 // optional
+    invariant { } // invariant for stateMachine
+    default { // global defaults
+    }
+    initialState { // initial state expression
+    }
+    initialStates { // define expression for deriving state stack for nested maps.
+    }
+    onStateChange { // define an event handler to be invoked after a transition when the state has changed.
+
+    }
+    stateMap { // define named statemap
+    }
+    whenState { // state definition
+    }
+}.build()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="asyncfunctionalstatemachine"><code>asyncFunctionalStateMachine</code></h3>
+<div class="paragraph">
+<p><code>asyncFunctionalStateMachine</code> is the same as <code>asyncStateMachine</code>, but the context type, the argument type and the return type are the same type.</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><a href="javadoc/kfsm/org.infosmid.kfsm.async/async-functional-state-machine.html">asyncFunctionalStateMachine</a></p>
+</li>
+</ul>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// using global function
+val definition = asyncFunctionalStateMachine(
+    State.values().toSet(),
+    Event.values().toSet(),
+    ContextType::class
+) {
+    defaultInitialState = State.S1 // optional
+    invariant { } // invariant for stateMachine
+    default { // global defaults
+    }
+    initialState { // initial state expression
+    }
+    initialStates { // define expression for deriving state stack for nested maps.
+    }
+    onStateChange { // define an event handler to be invoked after a transition when the state has changed.
+
+    }
+    stateMap { // define named statemap
+    }
+    whenState { // state definition
+    }
+}.build()</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="default"><code>default</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/default.html">DslStateMachineHandler::default</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use <code>default</code> to configure the entry action, the exit action and the action for all states.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">default {
+    action { // global action
+    }
+    onEntry { // global state entry action
+    }
+    onExit { // global state exit action
+    }
+    onEvent { // default transitions
+    }
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="action"><code>action</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-default-event-handler/action.html">DslStateMachineDefaultEventHandler::action</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Give a lambda of type <code>C.(S, E, A?) &#8594; R?</code>.
+The state machine runs it when no other transition matches.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">action { currentState, event, arg -&gt; // global default action
+    contextFunction()
+    anotherContextFunction()
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="onentry"><code>onEntry</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-default-event-handler/on-entry.html">DslStateMachineDefaultEventHandler::onEntry</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Give a lambda of type <code>C.(S, S, A?) &#8594; Unit</code>.
+The state machine runs it for each external transition, before the state changes.
+The state machine runs the global entry action after the entry action of the state.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onEntry { fromState, targetState, arg -&gt;
+    entryAction()
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="onexit"><code>onExit</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-default-event-handler/on-exit.html">DslStateMachineDefaultEventHandler::onExit</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Give a lambda of type <code>C.(S, S, A?) &#8594; Unit</code>.
+The state machine runs it for each external transition, before the state changes.
+The state machine runs the global exit action after the exit action of the state.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onExit { fromState, targetState, arg -&gt;
+    exitAction()
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="onevent"><code>onEvent</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(event: E [to targetState: S])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-default-event-handler/on-event.html">DslStateMachineDefaultEventHandler::onEvent</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Use <code>onEvent</code> to define a transition for an event when no other transition matches.
+There are two variations.
+The first variation is an internal transition and has no target state.
+The second variation is an external transition and has a target state.
+In both variations, the lambda type is <code>C.(A?) &#8594; R?</code>.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onEvent(Event.EVENT) { arg -&gt; // default internal state action for given event
+    someFunction()
+}
+
+onEvent(Event.EVENT to State.STATE) { arg -&gt; // default external state action for given event
+    anotherFunction()
+}</code></pre>
+</div>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="initialstate"><code>initialState</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/initial-state.html">DslStateMachineHandler::initialState</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Give a lambda of type <code>C.() &#8594; S</code>.
+The lambda derives the state of the state machine from the context.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">initialState {
+    when(flag) {
+        1 -&gt; State.S1
+        2 -&gt; State.S2
+        else -&gt; error("Invalid state")
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="initialstates"><code>initialStates</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/initial-states.html">DslStateMachineHandler::initialStates</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the state machine has named state maps, you must use <code>initialStates</code>.
+You cannot use <code>initialState</code> with named state maps.</p>
+</div>
+<div class="paragraph">
+<p>Give a lambda of type <code>C.() &#8594; StateMapList&lt;S&gt;</code>.
+The lambda derives the state map stack from the context.
+It returns a list of pairs of a state and a state map name.
+The first pair is the bottom of the stack.
+The last pair is the current state map.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">initialStates {
+    mutableListOf&lt;StateMapItem&lt;PayingTurnstileStates&gt;&gt;().apply {
+        if (locked) {
+            this.add(PayingTurnstileStates.LOCKED to "default")
+        } else {
+            this.add(PayingTurnstileStates.UNLOCKED to "default")
+        }
+        if (coins &gt; 0) {
+            this.add(PayingTurnstileStates.COINS to "coins")
+        }
+    }.toMap()
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect2">
+<h3 id="onstatechange"><code>onStateChange</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/on-state-change.html">DslStateMachineHandler::onStateChange</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Give a lambda of type <code>C.(S, S) &#8594; Unit</code>.
+The first argument is the previous state.
+The second argument is the new state.</p>
+</div>
+<div class="paragraph">
+<p>The state machine runs this lambda after a transition completes and the new state is in effect.
+It does not run the lambda when the state stays the same.
+The exit actions and the entry actions run before the state changes.
+Inside these actions, a check of the allowed events still shows the previous state.</p>
+</div>
+<div class="paragraph">
+<p>The state machine catches an exception from the lambda.
+It does not throw the exception again.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="whenstate"><code>whenState</code></h3>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(currentState: S)</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/when-state.html">DslStateMachineHandler::whenState</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Mandatory</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Each <code>whenState</code> block describes the transitions for one state.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.STATE) {
+    default { // default action for State.STATE
+    }
+    onEntry { // entry action for State.STATE
+    }
+    onExit { // exit action for State.STATE
+    }
+    onEvent(Event.EV2 to State.S1, guard = {flag == 1 }) { // external transition with guard expression
+    }
+    onEventPush(Event.EV2, "mapName", State.S1, guard = { flag == 1}) { // push transition to new map with guard expression
+    }
+    onEventPop(Event.EV3, "newMap", State.S3) { // pop transition leading into new push transition while executing current action only
+    }
+    automatic(State.S1, guard = { flag == 1}) { // automatic transition to new state when guard is met
+    }
+    // timeout is limited to AsyncStateMachineBuilder
+    timeout(State.S1, timeout, [guard = { expression }]) { // transition to S1 when timeout is triggered and guard is true
+    }
+    timeoutPop(State.S1, timeout, [guard = { expression }]) { // pop transition to S1 when timeout is triggered and guard is true
+    }
+    timeoutPush(State.S1, "mapName",  timeout, [guard = { expression }]) { // push transition to S1 in "mapName" when timeout is triggered and guard is true
+    }
+}</code></pre>
+</div>
+</div>
+<div class="sect3">
+<h4 id="default-2"><code>default</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/default.html">DslStateMachineEventHandler::default</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>A state block can have one default action.
+It is a lambda of type <code>C.(S, E, A?) &#8594; R?</code>.
+The state machine runs it when no transition matches the state, the event and the guard expressions.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">default { fromState, event, arg -&gt; // default state action
+    someDefaultAction()
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="onentry-2"><code>onEntry</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-entry.html">DslStateMachineEventHandler::onEntry</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Give a lambda of type <code>C.(S, S, A?) &#8594; Unit</code>.
+The state machine runs it for an external transition that has this state as the target state.
+It runs after the transition action.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onEntry { fromState, targetState, arg -&gt; // state entry action
+    println("Entering:$targetState from $fromState with $arg")
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="onexit-2"><code>onExit</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-exit.html">DslStateMachineEventHandler::onExit</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Single</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Give a lambda of type <code>C.(S, S, A?) &#8594; Unit</code>.
+The state machine runs it for an external transition that starts in this state.
+It runs before the transition action.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onExit { fromState, targetState, arg -&gt; // state exit action
+    println("Exiting:$fromState to $targetState with $arg")
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="automatic"><code>automatic</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(targetState: S [, guard:{}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/automatic.html">DslStateMachineEventHandler::automatic</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are two variations of the automatic transition.
+One variation has a guard expression.
+The other variation has no guard expression.</p>
+</div>
+<div class="paragraph">
+<p>The state machine selects an automatic transition after it completes a transition, when this state is the current state.
+It selects the transition in the same way as for an event.
+The first guard that returns <code>true</code> selects the transition.
+If no guard returns <code>true</code>, the state machine uses the transition that has no guard.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
+    automatic(State.S1, guard = { flag == 1}) { // automatic transition to new state when guard is met
+    }
+    automatic(State.S1) { // automatic transition to new state
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="automaticpop"><code>automaticPop</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>([targetMap: String,][,targetState: S] [, guard:{}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/automatic-pop.html">DslStateMachineEventHandler::automaticPop</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are six variations of the automatic pop transition.
+Each variation has or does not have a guard expression.
+Each variation has no target, a target state, or a target map and a target state.
+If the transition has a target map, a push transition follows the pop transition.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
+    automaticPop { // pop when S1
+    }
+    automaticPop(guard= { flag == 1 }) { // pop when S1 and guard is true
+    }
+    automaticPop(State.S2, guard = { flag == 1 }) { // automatic pop transition to new state when guard is met
+    }
+    automaticPop(State.S2) { // automatic pop transition to new state
+    }
+    automaticPop("map1", State.S2) { // automatic pop transition to push transition to new state in target map
+    }
+    automaticPop("map1", State.S2, guard={flag == 1 }) { // automatic pop transition to push transition to new state in target map
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="automaticpush"><code>automaticPush</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(targetMap: String, targetState: S [, guard:{}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/automatic-push.html">DslStateMachineEventHandler::automaticPush</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are two variations of the automatic push transition.
+One variation has a guard expression.
+The other variation has no guard expression.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
+    automaticPush("map1", State.S2) { // automatic push transition to S2 in target map "map1"
+    }
+    automaticPush("map1", State.S2, guard={flag == 1 }) { // automatic push transition to S2 in target map "map1" if guard is true
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="onevent-2"><code>onEvent</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(event: E [to targetState: S],[guard: {}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-event.html">DslStateMachineEventHandler::onEvent</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are four variations of the transition.
+A transition is external or internal.
+It has or does not have a guard expression.</p>
+</div>
+<div class="paragraph">
+<p><code>onEvent</code> defines the transition for an event.
+An external transition must have a target state.
+An internal transition must not have a target state.
+A transition can have a guard expression.</p>
+</div>
+<div class="paragraph">
+<p>The order in which the DSL reads the guard expressions is the order of evaluation.
+The first guard that returns <code>true</code> selects the transition.
+For one state and one event, only one transition can have no guard expression.</p>
+</div>
+<div class="paragraph">
+<p>Examples:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onEvent(Event.EV1, guard = { flag == 1 }) { arg -&gt; // internal transition with guard expression
+}
+onEvent(Event.EV1 to State.S2, guard = { flag == 2}) { arg -&gt; // external transition with guard expression
+}
+onEvent(Event.EV1) { arg -&gt; // internal transition
+}
+onEvent(Event.EV2 to State.S2) { arg -&gt; // external transition
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="oneventpush"><code>onEventPush</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(event: E, targetMap: String, targetState: S [, guard:{}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-event-push.html">DslStateMachineEventHandler::onEventPush</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are two variations of the push transition.
+One variation has a guard expression.
+The other variation has no guard expression.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
+    onEventPush(Event.EV2, "mapName", State.S2) { // push transition to S2 in new map "mapName"
+    }
+    onEventPush(Event.EV2, "mapName", State.S2, guard = { flag == 1}) { // push transition to S2 in new map "mapName" with guard expression
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="oneventpop"><code>onEventPop</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(event: E [to targetState: S]|[,targetMap: String, targetState: S], [guard:{}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-event-pop.html">DslStateMachineEventHandler::onEventPop</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>There are six variations of the pop transition.
+Each variation has or does not have a guard expression.
+Each variation has no target, a target state, or a target map and a target state.
+If the transition has a target map, a push transition follows the pop transition.</p>
+</div>
+<div class="paragraph">
+<p>Example:</p>
+</div>
+<div class="listingblock">
+<div class="content">
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
+    onEventPop(Event.EV3) { // pop transition without targetState
+    }
+    onEventPop(Event.EV3, guard={ flag == 1 }) { // pop transition without targetState and guard expression
+    }
+    onEventPop(Event.EV3 to State.S2) { // pop transition on EV3 changing state to S2
+    }
+    onEventPop(Event.EV3 to State.S2, guard={ flag == 1 }) { // pop transition on EV3 changing state to S2 with a guard expression
+    }
+    onEventPop(Event.EV3, "newMap", State.S3) { // pop transition leading into new push transition to S3 in "newMap"
+    }
+    onEventPop(Event.EV3, "newMap", State.S3, guard={ flag == 1 }) { // pop transition leading into new push transition to S3 in "newMap" with a guard expression
+    }
+}</code></pre>
+</div>
+</div>
+</div>
+<div class="sect3">
+<h4 id="timeout"><code>timeout</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(targetState: S, timeout: Long | C.() &#8594; Long, [guard:{}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm.async/-async-dsl-state-map-event-handler/timeout.html">AsyncDslStateMapEventHandler::timeout</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>Only asynchronous state machines have timeout transitions.</p>
+</div>
+<div class="paragraph">
+<p>The state machine starts a timer when it enters the state.
+When the timer expires, the transition occurs.
+The state machine cancels the timer when it processes another transition.</p>
+</div>
+<div class="paragraph">
+<p>The timeout is in milliseconds.
+Give it as a <code>Long</code>, or as a lambda that has the context as <code>this</code> and returns a <code>Long</code>.</p>
+</div>
+<div class="paragraph">
+<p>There are four variations.
+Two variations add a guard expression.
+The transition occurs only when the guard returns <code>true</code>.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="timeoutpop"><code>timeoutPop</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>([targetMap: String], [targetState: S], timeout: Long | C.() &#8594; Long, [guard:{}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm.async/-async-dsl-state-map-event-handler/timeout-pop.html">AsyncDslStateMapEventHandler::timeoutPop</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>timeoutPop</code> is a timeout transition that is also a pop transition.
+The variations combine these options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The timeout as a <code>Long</code> or as a lambda.</p>
+</li>
+<li>
+<p>An optional guard expression.</p>
+</li>
+<li>
+<p>No target, a target state, or a target map and a target state.</p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>If the transition has a target map, a push transition follows the pop transition.</p>
+</div>
+</div>
+<div class="sect3">
+<h4 id="timeoutpush"><code>timeoutPush</code></h4>
+<div class="ulist">
+<ul>
+<li>
+<p>Arguments: <code>(targetMap: String, targetState: S, timeout: Long | C.() &#8594; Long, [guard:{}])</code></p>
+</li>
+<li>
+<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm.async/-async-dsl-state-map-event-handler/timeout-push.html">AsyncDslStateMapEventHandler::timeoutPush</a></p>
+</li>
+<li>
+<p>Mandatory: <em>Optional</em></p>
+</li>
+<li>
+<p>Cardinality: <em>Multiple</em></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p><code>timeoutPush</code> is a timeout transition that is also a push transition.
+The variations combine these options:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p>The timeout as a <code>Long</code> or as a lambda.</p>
+</li>
+<li>
+<p>An optional guard expression.</p>
+</li>
+</ul>
+</div>
+</div>
+</div>
+</div>
+</div>
+<div class="sect1">
+<h2 id="operation">Operation</h2>
+<div class="sectionbody">
+<div class="paragraph">
+<p>After you define a state machine, you can create an instance.
+You give the instance a context.
+You can also give it an externalized state.</p>
+</div>
+<div class="paragraph">
+<p>When you call <code>sendEvent</code>, the state machine applies the event to the current state map.
+The current state map is the top-level state map, unless you defined named state maps and a push transition occurred.</p>
+</div>
+<div class="imageblock">
+<div class="content">
+<img src="statemachine-sequence.png" alt="FSM sequence">
+</div>
+</div>
+<div class="sect2">
+<h3 id="send-event">Send Event</h3>
+<div class="paragraph">
+<p>For an external transition, the state machine runs these actions in this order:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>sendEvent</code></p>
+<div class="ulist">
+<ul>
+<li>
+<p><code>exitAction()</code></p>
+</li>
+<li>
+<p><code>action()</code></p>
+</li>
+<li>
+<p><code>entryAction()</code></p>
+</li>
+</ul>
+</div>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>For an internal transition, the state machine runs only <code>action()</code>.</p>
+</div>
+<div class="paragraph">
+<p>The state machine runs the exit action of the state first.
+Then it runs the default exit action.
+The exit action of the state is <code>whenState/onExit</code>.
+If the current state map has no such action, the state machine uses <code>whenState/onExit</code> of the default state map.
+The default exit action is <code>stateMap/default/onExit</code>.
+If the current state map has none, the state machine uses the default exit action of the default state map.</p>
+</div>
+<div class="paragraph">
+<p>The action is the first of these that exists:</p>
+</div>
+<div class="ulist">
+<ul>
+<li>
+<p><code>stateMap/whenState/onEvent</code></p>
+</li>
+<li>
+<p><code>stateMap/whenState/default/action</code></p>
+</li>
+<li>
+<p><code>stateMap/default/action</code></p>
+</li>
+</ul>
+</div>
+<div class="paragraph">
+<p>The state machine runs the entry action of the state first.
+Then it runs the default entry action.
+The entry action of the state is <code>whenState/onEntry</code>.
+If the current state map has no such action, the state machine uses <code>whenState/onEntry</code> of the default state map.
+The default entry action is <code>stateMap/default/onEntry</code>.
+If the current state map has none, the state machine uses the default entry action of the default state map.</p>
+</div>
+<div class="paragraph">
+<p>The current state and the event select a set of transition rules.
+The definition gives these rules.
+If the rules have guarded transitions, the state machine evaluates the guard expressions in order.
+The first guard that returns <code>true</code> selects the transition.
+If no guard returns <code>true</code>, the state machine uses the transition that has no guard.</p>
+</div>
+<div class="paragraph">
+<p>If no transition matches, the state machine runs the default action.
+If there is no default action, <code>sendEvent</code> throws an exception.</p>
+</div>
+<div class="paragraph">
+<p>The state machine runs <code>onEntry</code> and <code>onExit</code> only for external transitions.
+An external transition has a target state.
+An internal transition has no target state.</p>
+</div>
+<div class="paragraph">
+<p>The current state selects the exit action.
+The target state selects the entry action.</p>
+</div>
+<div class="paragraph">
+<p>After a transition completes, the state machine selects the automatic transitions of the current state.</p>
+</div>
+</div>
+<div class="sect2">
+<h3 id="notes-on-concurrency-and-coroutines">Notes on Concurrency and Coroutines</h3>
+<div class="paragraph">
+<p><code>AsyncTimer</code> uses the <code>CoroutineScope</code> that you give when you create the instance.
+It starts a coroutine in this scope.
+The coroutine waits for the <code>delay</code> and then runs the trigger.</p>
+</div>
 </div>
 </div>
 </div>
@@ -681,11 +2267,12 @@ Instead of creating a generator for Kotlin we decided to attempt a Kotlin DSL al
 <div class="sect2">
 <h3 id="simple-turnstile-example">Simple turnstile example</h3>
 <div class="paragraph">
-<p>Assume we and to manage the state on a simple lock.
-We want to ensure that the <code>lock()</code> function is only called when the lock is not locked, and we want <code>unlock()</code> to be called when locked.</p>
+<p>Assume that you must manage the state of a simple lock.
+The <code>lock()</code> function must run only when the lock is not locked.
+The <code>unlock()</code> function must run only when the lock is locked.</p>
 </div>
 <div class="paragraph">
-<p>Then we use the DSL to declare a definition of a statemachine matching the diagram:</p>
+<p>Use the DSL to declare a state machine definition that matches the diagram:</p>
 </div>
 <div class="sect3">
 <h4 id="state-diagram">State Diagram</h4>
@@ -778,7 +2365,7 @@ We want to ensure that the <code>lock()</code> function is only called when the 
 <div class="sect3">
 <h4 id="enums-for-states-and-events">Enums for States and Events</h4>
 <div class="paragraph">
-<p>We declare 2 enums, one for the possible states and one for the possible events.</p>
+<p>Declare two enums. One enum has the states. The other enum has the events.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -810,8 +2397,7 @@ enum class TurnstileEvents {
     fun allowedEvents() = fsm.allowed().map { it.name.lowercase() }.toSet()
 
     companion object {
-        val definition =
-            stateMachine(
+        private val definition = stateMachine(
                 TurnstileStates.entries.toSet(),
                 TurnstileEvents.entries.toSet(),
                 Turnstile::class
@@ -863,7 +2449,7 @@ enum class TurnstileEvents {
 <div class="sect3">
 <h4 id="usage">Usage</h4>
 <div class="paragraph">
-<p>Then we instantiate the FSM and provide a context to operate on:</p>
+<p>Create an instance of the state machine. Give it the context that the actions operate on:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -872,24 +2458,24 @@ val fsm = TurnstileFSM(turnstile)</code></pre>
 </div>
 </div>
 <div class="paragraph">
-<p>Now we have a context that is independent of the FSM.</p>
+<p>The context is independent of the state machine.</p>
 </div>
 <div class="paragraph">
-<p>Sending events may invoke actions:</p>
+<p>When you send an event, the state machine can run actions:</p>
 </div>
 <div class="listingblock">
 <div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// State is LOCKED
+<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// The state is LOCKED
 fsm.coin()
-// Expect unlock action end state is UNLOCKED
+// Expect the unlock() action. The new state is UNLOCKED
 fsm.pass()
-// Expect lock() action and end state is LOCKED
+// Expect the lock() action. The new state is LOCKED
 fsm.pass()
-// Expect alarm() action and end state is LOCKED
+// Expect the alarm() action. The state stays LOCKED
 fsm.coin()
-// Expect unlock() and end state is UNLOCKED
+// Expect the unlock() action. The new state is UNLOCKED
 fsm.coin()
-// Expect returnCoin() and end state is UNLOCKED</code></pre>
+// Expect the returnCoin() action. The state stays UNLOCKED</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -900,10 +2486,11 @@ fsm.coin()
 <div class="sect2">
 <h3 id="advanced-features">Advanced Features</h3>
 <div class="paragraph">
-<p>We can add an argument to events and use named state maps with push / pop and automatic transitions.</p>
+<p>An event can have an argument.
+A state machine can also have named state maps, push transitions, pop transitions and automatic transitions.</p>
 </div>
 <div class="paragraph">
-<p>The argument is sent as follows:</p>
+<p>Send the argument with the event:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -911,7 +2498,7 @@ fsm.coin()
 </div>
 </div>
 <div class="paragraph">
-<p>The argument is references in the action as follows:</p>
+<p>The action receives the argument:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -921,9 +2508,10 @@ fsm.coin()
 </div>
 </div>
 <div class="paragraph">
-<p>If we update the turnstile to include the value of the coin in the coin event we could implement the following:
-A named state where decisions regarding coins are made.
-We push to <code>coins</code> with COINS state and then the automatic states will be triggered if the guards are met.</p>
+<p>In this example, the COIN event has the value of the coin as its argument.
+A named state map, <code>coins</code>, makes the decisions about coins.
+A push transition goes to the <code>coins</code> state map and the COINS state.
+Then the state machine runs an automatic transition when its guard returns <code>true</code>.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -995,15 +2583,16 @@ We push to <code>coins</code> with COINS state and then the automatic states wil
 </tbody>
 </table>
 <div class="paragraph">
-<p>When event is empty it is an automatic transition.
-We will further place COINS state in a named state map to illustrate how these can be composed to isolate or group behaviour.</p>
+<p>A row without an event is an automatic transition.
+The COINS state is in a named state map.
+This shows how you can use state maps to group behaviour or to keep it separate.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="context-class-2">Context class</h4>
 <div class="paragraph">
-<p>The context class doesn&#8217;t make decisions.
-The context class stores values and will update value in very specific ways.</p>
+<p>The context class does not make decisions.
+It stores values and changes them in specific ways.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1078,16 +2667,16 @@ enum class PayingTurnstileEvents {
 </div>
 </div>
 <div class="paragraph">
-<p>We add a stateMap named <code>coins</code> with the state <code>COINS</code>.
-The statemap will be entered when there are coins.
-The automatic transitions will be triggered based on the guard expressions.</p>
+<p>The definition adds a state map that is named <code>coins</code>. The state map has the state <code>COINS</code>.
+The state machine enters the state map when the turnstile has coins.
+The guard expressions select the automatic transitions.</p>
 </div>
 </div>
 <div class="sect3">
 <h4 id="state-machine-definition-packaged">State machine definition packaged</h4>
 <div class="paragraph">
-<p>This includes an example of externalizing the state and creating an instance using a previously externalized state.
-The <code>externalState</code> method provides a list of states for the case where there are nested statemaps.</p>
+<p>This example shows how to externalize the state and how to create an instance from an externalized state.
+The <code>externalState</code> function returns a list of states. The list has one state for each state map on the stack.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1309,15 +2898,15 @@ entering:UNLOCKED ([10]) for Turnstile(locked=false,coins=0)</code></pre>
 <div class="sect2">
 <h3 id="secure-turnstile-example">Secure Turnstile Example</h3>
 <div class="paragraph">
-<p>Unless you grew up in a city with a subway you may not be familiar with a turnstile accepting counts.
-You may be familiar with turnstile that responds to RFID or NFC cards.</p>
+<p>This turnstile reads RFID cards or NFC cards. It does not accept coins.</p>
 </div>
 <div class="paragraph">
-<p>We would add a complexity that allows for an override card to allow cards to pass even if they are invalid.</p>
+<p>The turnstile also has an override card.
+When the override is active, the turnstile lets any card pass, also an invalid card.</p>
 </div>
 <div class="paragraph">
-<p>We will use guard expressions to identify the override card and the validity of the card.
-When the override card is tapped a 2nd time it will cancel the override or lock the turnstile depending on the state.</p>
+<p>Guard expressions identify the override card and check if a card is valid.
+When a user taps the override card a second time, the turnstile cancels the override or locks, depending on the state.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -1368,7 +2957,7 @@ When the override card is tapped a 2nd time it will cancel the override or lock 
 <tr>
 <td class="tableblock halign-left valign-top"><p class="tableblock">LOCKED</p></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">CARD(id)</p></td>
-<td class="tableblock halign-left valign-top"><p class="tableblock">not isValidVard(id)</p></td>
+<td class="tableblock halign-left valign-top"><p class="tableblock">not isValidCard(id)</p></td>
 <td class="tableblock halign-left valign-top"></td>
 <td class="tableblock halign-left valign-top"><p class="tableblock">invalidCard()</p></td>
 </tr>
@@ -1392,8 +2981,9 @@ When the override card is tapped a 2nd time it will cancel the override or lock 
 <div class="sect3">
 <h4 id="context-class-3">Context class</h4>
 <div class="paragraph">
-<p>The context class doesn&#8217;t make decisions about the behaviour of the turnstile.
-The context will provide information about the state of turnstile and validity of cards The context class stores values and will update value in very specific ways.</p>
+<p>The context class does not make decisions about the behaviour of the turnstile.
+It gives information about the state of the turnstile and about the validity of cards.
+It stores values and changes them in specific ways.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1609,20 +3199,20 @@ The context will provide information about the state of turnstile and validity o
 </div>
 </div>
 <div class="paragraph">
-<p>In real terms the above example combines multiple transitions into one for brevity.
-It is better when all control characters are one type of event with guard expressions.
-All events have a parameter which is the byte received and the event type is either BYTE, CTRL or ESC where:</p>
+<p>The diagram above combines some transitions to keep the diagram short.
+In the implementation, all control characters are one type of event, and guard expressions tell them apart.
+Each event has the received byte as its argument. The event type is BYTE, CTRL or ESC:</p>
 </div>
 <div class="ulist">
 <ul>
 <li>
-<p>ESC is 0x1B</p>
+<p>ESC is 0x1B.</p>
 </li>
 <li>
-<p>CTRL is for SOH,STX,ETX,EOT, ACK, NAK</p>
+<p>CTRL is SOH, STX, ETX, EOT, ACK or NAK.</p>
 </li>
 <li>
-<p>BYTE all other characters</p>
+<p>BYTE is any other character.</p>
 </li>
 </ul>
 </div>
@@ -1634,7 +3224,7 @@ All events have a parameter which is the byte received and the event type is eit
 <div class="sect3">
 <h4 id="context-classes">Context Classes</h4>
 <div class="paragraph">
-<p>The current checksum is a trivial implementation for the demonstration where the checksum has a character that matches the first character of each field.</p>
+<p>The checksum in this example is simple. The checksum has one character for each field. This character is the same as the first character of the field.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -1709,7 +3299,7 @@ class Packet(private val protocolHandler: ProtocolHandler) :
 
     override fun addByte(byte: Int) {
         val field = currentField
-        requireNotNull(field) { "expected currentField to have a value" }
+        preconditionNotNull(field) { "expected currentField to have a value" }
         field.addByte(byte)
     }
 
@@ -2027,13 +3617,13 @@ enum class ReaderStates {
 <div class="sect2">
 <h3 id="immutable-context-example">Immutable Context Example</h3>
 <div class="paragraph">
-<p>In the case where you want a pure functional context that is immutable the following example will provide what you need:</p>
+<p>Use this example when you want an immutable context. Actions do not change the context. They return a new context.</p>
 </div>
 <div class="sect3">
 <h4 id="immutable-context">Immutable Context</h4>
 <div class="paragraph">
-<p>The immutable context doesn&#8217;t modify a variable.
-It returns a copy containing the new context</p>
+<p>The immutable context does not change a variable.
+It returns a copy that has the new values.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2071,9 +3661,9 @@ It returns a copy containing the new context</p>
 </div>
 </div>
 <div class="sect3">
-<h4 id="definition">Definition</h4>
+<h4 id="definition-2">Definition</h4>
 <div class="paragraph">
-<p>The definition only exposes one method to handle an event given a context and return the new context.</p>
+<p>The definition has one function. The function applies an event to a context and returns the new context.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2146,8 +3736,8 @@ operator fun ImmutableLock.plus(event: LockEvents): ImmutableLock {
 <div class="sect3">
 <h4 id="usage-2">Usage</h4>
 <div class="paragraph">
-<p>We also added an overloaded plus operator.
-The provides for a way of signaling the application of event to context.</p>
+<p>The example also has an overloaded <code>plus</code> operator.
+Use it to apply an event to a context.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2159,7 +3749,7 @@ The provides for a way of signaling the application of event to context.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>In the case where the argument to the state action will be something other than the context you can use a <code>Pair</code> and even when the state is needed separately:</p>
+<p>When the argument of the action is not the context, use a <code>Pair</code>. Use a <code>Pair</code> also when you need the state separately:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2168,8 +3758,8 @@ The provides for a way of signaling the application of event to context.</p>
 </div>
 </div>
 <div class="paragraph">
-<p>This assumes the argument is defined as type <code>Int</code> and the return as <code>Pair&lt;LockStates,ImmutablePayingTurnstile&gt;</code>
-The <code>handleEventMethod</code> will be:</p>
+<p>In this example, the argument type is <code>Int</code>. The return type is <code>Pair&lt;LockStates, ImmutablePayingTurnstile&gt;</code>.
+The <code>handleEvent</code> function is:</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2185,7 +3775,8 @@ The <code>handleEventMethod</code> will be:</p>
 <div class="sect2">
 <h3 id="secure-turnstile-with-timeout-example">Secure Turnstile with Timeout Example</h3>
 <div class="paragraph">
-<p>We updated the Secure Turnstile with a timeout condition.</p>
+<p>This example adds a timeout transition to the Secure Turnstile.
+When the turnstile is UNLOCKED for 500 ms, it locks.</p>
 </div>
 <div class="imageblock">
 <div class="content">
@@ -2194,11 +3785,8 @@ The <code>handleEventMethod</code> will be:</p>
 </div>
 <div class="sect3">
 <h4 id="state-table-4">State Table</h4>
-
-</div>
-</div>
-<div class="sect2">
-<h3 id="timersecureturnstilefsm-state-map">TimerSecureTurnstileFSM State Map</h3>
+<div class="sect4">
+<h5 id="timersecureturnstilefsm-state-map">TimerSecureTurnstileFSM State Map</h5>
 <table class="tableblock frame-all grid-all stretch">
 <colgroup>
 <col style="width: 25%;">
@@ -2303,11 +3891,14 @@ lock()
 </tr>
 </tbody>
 </table>
+</div>
+</div>
 <div class="sect3">
 <h4 id="context-class-4">Context class</h4>
 <div class="paragraph">
-<p>The context class doesn&#8217;t make decisions about the behaviour of the turnstile.
-The context will provide information about the state of turnstile and validity of cards The context class stores values and will update value in very specific ways.</p>
+<p>The context class does not make decisions about the behaviour of the turnstile.
+It gives information about the state of the turnstile and about the validity of cards.
+It stores values and changes them in specific ways.</p>
 </div>
 <div class="listingblock">
 <div class="content">
@@ -2490,1280 +4081,15 @@ The context will provide information about the state of turnstile and validity o
 <div class="sect2">
 <h3 id="further-thoughts">Further thoughts</h3>
 <div class="paragraph">
-<p>The escape handling from the packet reader could be a separate statemap.
-The current implementation has a problem in that the value should be added to different buffer.
-It may be worthwhile to have a mechanism for providing a different substate context to take care of this kind of situation.
-An interface/class exposed to the substate instead of the full context.
-In this example <code>Block</code> will be exposed to the stateMap.
-The stateMap can then pop after adding the byte.
-In the case of an invalid character the statemap will still transition to the end state.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="getting-started">Getting Started</h2>
-<div class="sectionbody">
-<div class="sect2">
-<h3 id="repository">Repository</h3>
-<div class="paragraph">
-<p>Use this repository for SNAPSHOT builds.
-Releases are on Maven Central</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">repositories {
-    maven {
-        url 'https://oss.sonatype.org/content/groups/public'
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="dependencies">Dependencies</h3>
-<div class="sect3">
-<h4 id="kotlinjvm-projects">Kotlin/JVM Projects</h4>
-<div class="sect4">
-<h5 id="gradle-groovy-dsl">Gradle Groovy DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">dependencies {
-    implementation 'org.infosmid:kfsm-jvm:2.0.0'
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="gradle-kotlin-dsl">Gradle Kotlin DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">dependencies {
-    implementation("org.infosmid:kfsm-jvm:2.0.0")
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="kotlinjs-projects">KotlinJS Projects</h4>
-<div class="sect4">
-<h5 id="gradle-groovy-dsl-2">Gradle Groovy DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">dependencies {
-    implementation 'org.infosmid:kfsm-js:2.0.0'
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="gradle-kotlin-dsl-2">Gradle Kotlin DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">dependencies {
-    implementation("org.infosmid:kfsm-js:2.0.0")
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="kotlinnative-projects-using-linuxx64">Kotlin/Native Projects using LinuxX64</h4>
-<div class="sect4">
-<h5 id="gradle-groovy-dsl-3">Gradle Groovy DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">dependencies {
-    implementation 'org.infosmid:kfsm-linuxX64:2.0.0'
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="gradle-kotlin-dsl-3">Gradle Kotlin DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">dependencies {
-    implementation("org.infosmid:kfsm-linuxX64:2.0.0")
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="kotlinnative-projects-using-mingw64">Kotlin/Native Projects using MinGW64</h4>
-<div class="sect4">
-<h5 id="gradle-groovy-dsl-4">Gradle Groovy DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">dependencies {
-    implementation 'org.infosmid:kfsm-mingwX64:2.0.0'
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="gradle-kotlin-dsl-4">Gradle Kotlin DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">dependencies {
-    implementation("org.infosmid:kfsm-mingwX64:2.0.0")
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="kotlinnative-projects-using-macos">Kotlin/Native Projects using macOS</h4>
-<div class="sect4">
-<h5 id="gradle-groovy-dsl-5">Gradle Groovy DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-groovy" data-lang="groovy">dependencies {
-    implementation 'org.infosmid:kfsm-macosX64:2.0.0'
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect4">
-<h5 id="gradle-kotlin-dsl-5">Gradle Kotlin DSL</h5>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">dependencies {
-    implementation("org.infosmid:kfsm-macosX64:2.0.0")
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="finite-state-machines">Finite state machines.</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>This section will describe the life-cycle and philosophy behind this implementation of Finite state machines.</p>
-</div>
-<div class="sect2">
-<h3 id="definition-2">Definition</h3>
-<div class="paragraph">
-<p>An FSM is defined using a DSL as described further in this document.</p>
-</div>
-<div class="paragraph">
-<p>During this definition the user describes state types, events types as well as the behaviour of the FSM to events and how it will operate on a provided context.</p>
-</div>
-<div class="paragraph">
-<p>The state and event types should be a value types.</p>
-</div>
-<div class="paragraph">
-<p>The names <code>START</code> and <code>END</code> as states will be used as the start and end states when a state diagram is generated by <code>kfsm-viz</code></p>
-</div>
-<div class="paragraph">
-<p>The events may receive an argument and may return a value.
-The argument for all event must be the same type.
-However, sealed classes can be used to simplify the representation of different argument types.</p>
-</div>
-<div class="paragraph">
-<p>The state machine will define one or more state maps each representing a subset of possible states of the same type.</p>
-</div>
-<div class="paragraph">
-<p>The state machine will receive events, constrained by set of events.
-The event does not have to be enum, only a value with <code>equals</code> and <code>hashCode</code> implementations.</p>
-</div>
-<div class="paragraph">
-<p>The state machine will apply actions to a context.
-The context represents the work that need to be performed.</p>
-</div>
-<div class="paragraph">
-<p>An event may trigger a state transition which defines actions to apply when the state machine is in a specific state.</p>
-</div>
-<div class="paragraph">
-<p>Transitions may have a guard expression that has to evaluate to <code>true</code> to allow execution of transition.</p>
-</div>
-<div class="paragraph">
-<p>An automatic transition can be defined on a state and has no events.
-Automatic transitions will be executed if the specific state is current after the exit action.</p>
-</div>
-<div class="paragraph">
-<p>A timeout transition can be defined on a state and is triggered a configured amount of time after the entry into the state.
-The transition will be trigger upon timeout unless a configured guard expression doesn&#8217;t evaluate to <code>true</code>.</p>
-</div>
-<div class="paragraph">
-<p>The state can be any value type providing <code>equals</code> and <code>hashCode</code>, even though we have been using <code>enum class</code> most examples.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="instance">Instance</h3>
-<div class="paragraph">
-<p>The philosophy behind the design is that the finite state machine can be used when needed by creating an instance using the definition and providing it with the context and optionally a previously externalized state.
-The state machine can also be defined to derive the current state from the provided context.</p>
-</div>
-<div class="paragraph">
-<p>Then events are sent to the FSM with an argument if needed and this may trigger the defined actions.</p>
-</div>
-<div class="paragraph">
-<p>The FSM provides for a query to determine which events are allowed for the current or a given state.
-This is useful when user interaction controls need to be disabled or in the case of a back-end application using HATEOAS can add links limited to allowed events.</p>
-</div>
-<div class="paragraph">
-<p>If the FSM is configured with timeout transitions the instance will need to remain active.
-This is typically only used in UI or embedded interactive applications.</p>
-</div>
-<div class="paragraph">
-<p>If the FSM is used in a stateless environment that is driven by requests or events, the state can be externalised after use if it isn&#8217;t derived from the provided context.
-The externalised state is a list of pairs making up the state type and the name of the associated statemap.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="named-maps-and-push-pop-transitions">Named Maps and Push / Pop Transitions</h3>
-<div class="paragraph">
-<p>A named map represents a set of states that is grouped together.
-Named maps can be visited by using a push transition and return using a pop transition.
-A push transition requires a map name and a target state along with the normal event and optional guard and action.
-The current state map will be pushed on a stack and a statemap instance will be created using the named definition.
-Events will be processed according to the transition rules of the named map.</p>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="dsl">DSL</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>The DSL provides a way of configuring the statemachine.
-The statemachine supports:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p>Transitions: internal and external</p>
-<div class="ulist">
-<ul>
-<li>
-<p>Transitions are external when the target state is defined even if the target is same as current.</p>
-</li>
-</ul>
-</div>
-</li>
-<li>
-<p>Guard expressions</p>
-</li>
-<li>
-<p>Entry and exit actions per state and globally</p>
-</li>
-<li>
-<p>Default actions per state and globally</p>
-</li>
-<li>
-<p>Named statemaps</p>
-</li>
-<li>
-<p>Push and pop transitions</p>
-</li>
-<li>
-<p>Automatic transitions</p>
-</li>
-<li>
-<p>Timeout transitions</p>
-</li>
-<li>
-<p>Actions as <code>suspend</code> functions.</p>
-</li>
-<li>
-<p>State machine <code>invariant</code> will be evaluated on all events and throw an <code>InvariantException</code> if not true</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>All configuration calls are eventually applied to <a href="javadoc/kfsm/org.infosmid.kfsm/-state-machine-builder/index.html">StateMachineBuilder</a></p>
-</div>
-<div class="sect2">
-<h3 id="statemachine"><code>stateMachine</code></h3>
-<div class="paragraph">
-<p>The top level element is <code>stateMachine</code> either by using the function</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="javadoc/kfsm/org.infosmid.kfsm/-state-machine-builder/state-machine.html">StateMachineBuilder::stateMachine</a></p>
-</li>
-<li>
-<p><a href="javadoc/kfsm/org.infosmid.kfsm/state-machine.html">stateMachine</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 3 overloaded variations on <code>stateMachine</code> for providing <code>Any</code> as the return type and the argument to events/actions in cases where they are not used.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// using global function
-val definition = stateMachine(
-    State.values().toSet(),
-    Event.values().toSet(),
-    ContextType::class,
-    ArgType::class,
-    ReturnType::class
-) {
-    defaultInitialState = State.S1 // optional start state
-    invariant { } // invariant for stateMachine
-    default { // global defaults
-    }
-    initialState { // initial state expression
-    }
-    initialStates { // define expression for deriving state stack for nested maps.
-    }
-    onStateChange { // define an event handler to be invoked after a transition when the state has changed.
-
-    }
-    stateMap { // define named statemap
-    }
-    whenState { // state definition
-    }
-}.build()</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="functionalstatemachine"><code>functionalStateMachine</code></h3>
-<div class="paragraph">
-<p>The top level element is <code>functionalStateMachine</code> either by using the function</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="javadoc/kfsm/org.infosmid.kfsm/functional-state-machine.html">functionalStateMachine</a></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>It provides the same as <code>stateMachine</code> but in this case the Context, argument and return types are all the same.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// using global function
-val definition = stateMachine(
-    State.values().toSet(),
-    Event.values().toSet(),
-    ContextType::class
-) {
-    defaultInitialState = State.S1 // optional start state
-    invariant { } // invariant for stateMachine
-    default { // global defaults
-    }
-    initialState { // initial state expression
-    }
-    initialStates { // define expression for deriving state stack for nested maps.
-    }
-    onStateChange { // define an event handler to be invoked after a transition when the state has changed.
-
-    }
-    stateMap { // define named statemap
-    }
-    whenState { // state definition
-    }
-}.build()</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="asyncstatemachine"><code>asyncStateMachine</code></h3>
-<div class="paragraph">
-<p>This method provides for creating a statemachine definition and instances that have <code>suspend</code> functions as actions.
-This also adds the support for <code>timeout</code> on the state map handler.
-Creating an instance of an asyncStateMachine from a definition requires providing a <code>CoroutineScope</code>.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="javadoc/kfsm/org.infosmid.kfsm.async/async-state-machine.html">asyncStateMachine</a></p>
-</li>
-<li>
-<p>link:javadoc/kfsm/org.infosmid.kfsm.async/-async-state-machine-builder/state-machine.html</p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 3 overloaded variations on <code>stateMachine</code> for providing <code>Any</code> as the return type and the argument to events/actions in cases where they are not used.</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// using global function
-val definition = asyncStateMachine(
-    State.values().toSet(),
-    Event.values().toSet(),
-    ContextType::class,
-    ArgType::class,
-    ReturnType::class
-) {
-    defaultInitialState = State.S1 // optional
-    invariant { } // invariant for stateMachine
-    default { // global defaults
-    }
-    initialState { // initial state expression
-    }
-    initialStates { // define expression for deriving state stack for nested maps.
-    }
-    onStateChange { // define an event handler to be invoked after a transition when the state has changed.
-
-    }
-    stateMap { // define named statemap
-    }
-    whenState { // state definition
-    }
-}.build()</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="asyncfunctionalstatemachine"><code>asyncFunctionalStateMachine</code></h3>
-<div class="paragraph">
-<p>This is the same as <code>asyncStateMachine</code> except that Context, argument and return types are all the same.</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><a href="javadoc/kfsm/org.infosmid.kfsm.async/async-functional-state-machine.html">asyncFunctionalStateMachine</a></p>
-</li>
-</ul>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">// using global function
-val definition = asyncFunctionalStateMachine(
-    State.values().toSet(),
-    Event.values().toSet(),
-    ContextType::class
-) {
-    defaultInitialState = State.S1 // optional
-    invariant { } // invariant for stateMachine
-    default { // global defaults
-    }
-    initialState { // initial state expression
-    }
-    initialStates { // define expression for deriving state stack for nested maps.
-    }
-    onStateChange { // define an event handler to be invoked after a transition when the state has changed.
-
-    }
-    stateMap { // define named statemap
-    }
-    whenState { // state definition
-    }
-}.build()</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="default"><code>default</code></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/default.html">DslStateMachineHandler::default</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Provide default configuration for entry and exit actions as well as a default action.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">default {
-    action { // global action
-    }
-    onEntry { // global state entry action
-    }
-    onExit { // global state exit action
-    }
-    onEvent { // default transitions
-    }
-}</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="action"><code>action</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-default-event-handler/action.html">DslStateMachineDefaultEventHandler::action</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Provide a lambda <code>C.(S, E, A?)&#8594;R?</code> that will be invoked when no other transitions are matched.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">action { currentState, event, arg -&gt; // global default action
-    contextFunction()
-    anotherContextFunction()
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="onentry"><code>onEntry</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-default-event-handler/on-entry.html">DslStateMachineDefaultEventHandler::onEntry</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Provide a lambda <code>C.(S,S,A?) &#8594; Unit</code> that will be invoked before a change in the state of the FSM.
-Global entry actions will be called for all external transitions after state specific entry actions.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onEntry { fromState, targetState, arg -&gt;
-    entryAction()
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="onexit"><code>onExit</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-default-event-handler/on-exit.html">DslStateMachineDefaultEventHandler::onExit</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Provide a lambda <code>C.(S,S,A?) &#8594; Unit</code> that will be invoked after a change in the state of the FSM.
-Global exit actions will be called for all external transitions after state specific entry actions.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onExit { fromState, targetState, arg -&gt;
-    exitAction()
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="onevent"><code>onEvent</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(event: E [to targetState: S])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-default-event-handler/on-event.html">DslStateMachineDefaultEventHandler::onEvent</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This defines a transition when a specific event is received and no other transition was matched.
-There are 2 variations, the first is internal and doesn&#8217;t define a target state, the second is external and defines a target state.
-In both cases the lambda type is <code>C.(A?) &#8594; R?</code></p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onEvent(Event.EVENT) { arg -&gt; // default internal state action for given event
-    someFunction()
-}
-
-onEvent(Event.EVENT to State.STATE) { arg -&gt; // default external state action for given event
-    anotherFunction()
-}</code></pre>
-</div>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="initialstate"><code>initialState</code></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/initial-state.html">DslStateMachineHandler::initialState</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Provide a lambda <code>C.() &#8594; S</code> that will determine the state of the state machine.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">initialState {
-    when(flag) {
-        1 -&gt; State.S1
-        2 -&gt; State.S2
-        else -&gt; error("Invalid state")
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="initialstates"><code>initialStates</code></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/initial-states.html">DslStateMachineHandler::initialStates</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>One of <code>initialState</code> or <code>initialStates</code> must be provided.
-When a state-machine has named maps the <code>initialStates</code> must be provided.</p>
-</div>
-<div class="paragraph">
-<p>Provide a lambda <code>C.() &#8594; StateMapList&lt;S&gt;</code> that will determine the state of the state machine and map names that should be placed on the stack.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">initialStates {
-    mutableListOf&lt;StateMapItem&lt;PayingTurnstileStates&gt;&gt;().apply {
-        if (locked) {
-            this.add(PayingTurnstileStates.LOCKED to "default")
-        } else {
-            this.add(PayingTurnstileStates.UNLOCKED to "default")
-        }
-        if (coins &gt; 0) {
-            this.add(PayingTurnstileStates.COINS to "coins")
-        }
-    }.toMap()
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect2">
-<h3 id="onstatechange"><code>onStateChange</code></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/on-state-change.html">DslStateMachineHandler::onStateChange</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The <code>onStateChange</code> handler will be invoked after a transition has complete and the new state has taken effect. onExit and onEntry are invoked before a state change and checking allow within those handlers still relfect the previous state.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="whenstate"><code>whenState</code></h3>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(currentState: S)</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-machine-handler/when-state.html">DslStateMachineHandler::whenState</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Mandatory</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>Each <code>whenState</code> block decribes the transitions for a given state.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.STATE) {
-    default { // default action for State.STATE
-    }
-    onEntry { // entry action for State.STATE
-    }
-    onExit { // exit action for State.STATE
-    }
-    onEvent(Event.EV2 to State.S1, guard = {flag == 1 }) { // external transition with guard expression
-    }
-    onEventPush(Event.EV2, "mapName", State.S1, gaurd = { flag == 1}) { // push transition to new map with guard expression
-    }
-    onEventPop(Event.EV3, "newMap", State.S3) { // pop transition leading into new push transition while executing current action only
-    }
-    automatic(State.S1, guard = { flag == 1}) { // automatic transition to new state when guard is met
-    }
-    // timeout is limited to AsyncStateMachineBuilder
-    timeout(State.S1, timeout, [guard = { expression }]) { // transition to S1 when timeout is triggered and guard is true
-    }
-    timeoutPop(State.S1, timeout, [guard = { expression }]) { // transition to S1 when timeout is triggered and guard is true
-    }
-    timeoutPush(State.S1, "mapName",  timeout, [guard = { expression }]) { // transition to S1 when timeout is triggered and guard is true
-    }
-}</code></pre>
-</div>
-</div>
-<div class="sect3">
-<h4 id="default-2"><code>default</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/default.html">DslStateMachineEventHandler::default</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>A state block may have one default action which is a lambda of type <code>C.(S,E,Array&lt;out Any&gt;) &#8594; Unit</code> that is invoked when no other transition is found for the given state and event and guard expressions.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">default { fromState, event, arg -&gt; // default state action
-    someDefaultAction()
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="onentry-2"><code>onEntry</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-entry.html">DslStateMachineEventHandler::onEntry</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This defines a lambda of type <code>C.(S,S,A?) &#8594; R?</code> that will be invoked after the transition action for an external transition.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onEntry { fromState, targetState, arg -&gt; // state entry action
-    println("Entering:$targetState from $fromState with $arg")
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="onexit-2"><code>onExit</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-exit.html">DslStateMachineEventHandler::onExit</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Single</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>This defines a lambda of type <code>C.(S,S,A?) &#8594; Unit</code> that will be invoked before the transition action for an external transitions.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onExit { fromState, targetState, arg -&gt; // state exit action
-    println("Exiting:$fromState to $targetState with $arg")
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="automatic"><code>automatic</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(targetState: S [, guard:{}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/automatic.html">DslStateMachineDefaultEventHandler::automatic</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 2 variations of automatic transitions: Those with and without guards.
-An automatic transition is exercises after the state machine has completed processing a transition.
-All automatic transitions attached to a given state will be invoked if their guards are met.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
-    automatic(State.S1, guard = { flag == 1}) { // automatic transition to new state when guard is met
-    }
-    automatic(State.S1) { // automatic transition to new state
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="automaticpop"><code>automaticPop</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>([targetMap: String,][,targetState: S] [, guard:{}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/automatic-pop.html">DslStateMachineDefaultEventHandler::automaticPop</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 6 variations of automatic transitions: Those with and without guards, those with and without targetMaps which will lead to a new push transition.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
-    automaticPop { // pop when S1
-    }
-    automaticPop(guard= { flag == 1 }) { // pop when S1 and guard is true
-    }
-    automaticPop(State.S2, guard = { flag == 1 }) { // automatic pop transition to new state when guard is met
-    }
-    automaticPop(State.S2) { // automatic pop transition to new state
-    }
-    automaticPop("map1", State.S2) { // automatic pop transition to push transition to new state in target map
-    }
-    automaticPop("map1", State.S2, guard={flag == 1 }) { // automatic pop transition to push transition to new state in target map
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="automaticpush"><code>automaticPush</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(targetMap: String, targetState: S [, guard:{}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/automatic-push.html">DslStateMachineDefaultEventHandler::automaticPush</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 2 variations of automatic transitions: Those with and without guards</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
-    automaticPush("map1", State.S2) { // automatic push transition to S2 in target map "map1"
-    }
-    automaticPush("map1", State.S2, guard={flag == 1 }) { // automatic push transition to S2 in target map "map1" if guard is true
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="onevent-2"><code>onEvent</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(event: E [to targetState: S],[guard: {}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-event.html">DslStateMachineEventHandler::onEvent</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 4 variations of transitions: External and internal, with and without a guard expression.</p>
-</div>
-<div class="paragraph">
-<p>This defines a transition action for a given event.
-For an external transition a target state must be provided, while an internal transition must have no targetState.
-An optional guard expression can be provided.
-The order in which the DSL encounters guard expression determine the evaluation order.
-The first matching guard expression will determine the transition that will be used.
-Their may be only one transition without a guard expression.</p>
-</div>
-<div class="paragraph">
-<p>Examples:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">onEvent(Event.EV1, guard = { flag == 1 }) { arg -&gt; // internal transition with guard expression
-}
-onEvent(Event.EV1 to State.S2, guard = { flag == 2}) { arg -&gt; // external transition with guard expression
-}
-onEvent(Event.EV1) { arg -&gt; // internal transition
-}
-onEvent(Event.EV2 to State.S2) { arg -&gt; // external transition
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="oneventpush"><code>onEventPush</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(event: E, targetMap: String, targetState: S [, guard:{}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-event-push.html">DslStateMachineEventHandler::onEventPush</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 2 variations of automatic transitions: Those with and without guards Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
-    onEventPush(Event.EV2, "mapName", State.S2) { // push transition to S2 in new map "mapName"
-    }
-    onEventPush(Event.EV2, "mapName", State.S2, gaurd = { flag == 1}) { // push transition to S2 in new map "mapName" with guard expression
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="oneventpop"><code>onEventPop</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(event: E [to targetState: S]|[,targetMap: String, targetState: S], [guard:{}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm/-dsl-state-map-event-handler/on-event-pop.html">DslStateMachineEventHandler::onEventPop</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 6 variations of popTransitions to provide for with and without guards, with and without a new state and with and without a targetMap that will result in a new push transition.</p>
-</div>
-<div class="paragraph">
-<p>Example:</p>
-</div>
-<div class="listingblock">
-<div class="content">
-<pre class="highlight"><code class="language-kotlin" data-lang="kotlin">whenState(State.S1) {
-    onEventPop(Event.EV3) { // pop transition without targetState
-    }
-    onEventPop(Event.EV3, guard={ flag == 1 }) { // pop transition without targetState and guard expression
-    }
-    onEventPop(Event.EV3 to State.S2) { // pop transition on EV3 changing state to S2
-    }
-    onEventPop(Event.EV3 to State.S2, guard={ flag == 1 }) { // pop transition on EV3 changing state to S2 with a guard expression
-    }
-    onEventPop(Event.EV3, "newMap", State.S3) { // pop transition leading into new push transition to S3 in "newMap"
-    }
-    onEventPop(Event.EV3, "newMap", State.S3, guard={ flag == 1 }) { // pop transition leading into new push transition to S3 in "newMap" with a guard expression
-    }
-}</code></pre>
-</div>
-</div>
-</div>
-<div class="sect3">
-<h4 id="timeout"><code>timeout</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(targetState: S, timeout: Long, [guard:{}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm.async/-async-dsl-state-map-event-handler/timeout.html">AsyncDslStateMapEventHandler::onEventPop</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 2 versions.
-One adds the support for a guard expression that will be evaluated and the action will only trigger if the guard evaluates true.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="timeoutpop"><code>timeoutPop</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>([targetMap: String], targetState: S, timeout: Long, [guard:{}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm.async/-async-dsl-state-map-event-handler/timeout-pop.html">AsyncDslStateMapEventHandler::timeoutPop</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 5 versions.
-Combinations exist to add the optional guard expression and the targetMap.</p>
-</div>
-</div>
-<div class="sect3">
-<h4 id="timeoutpush"><code>timeoutPush</code></h4>
-<div class="ulist">
-<ul>
-<li>
-<p>Arguments: <code>(targetMap: String, targetState: S, timeout: Long, [guard:{}])</code></p>
-</li>
-<li>
-<p>Handler: <a href="javadoc/kfsm/org.infosmid.kfsm.async/-async-dsl-state-map-event-handler/timeout-push.html">AsyncDslStateMapEventHandler::timeoutPush</a></p>
-</li>
-<li>
-<p>Mandatory: <em>Optional</em></p>
-</li>
-<li>
-<p>Cardinality: <em>Multiple</em></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>There are 2 variations, the 2nd adds the optional guard expression.</p>
-</div>
-</div>
-</div>
-</div>
-</div>
-<div class="sect1">
-<h2 id="operation">Operation</h2>
-<div class="sectionbody">
-<div class="paragraph">
-<p>When the FSM was defined and instance can be created providing a context and optional externalized stated.</p>
-</div>
-<div class="paragraph">
-<p>When sendEvent is called the state machine applies the event to the current state map.
-The current state map is usually top-level state map unless you have defined named maps and used a push transition.</p>
-</div>
-<div class="imageblock">
-<div class="content">
-<img src="statemachine-sequence.png" alt="FSM sequence">
-</div>
-</div>
-<div class="sect2">
-<h3 id="send-event">Send Event</h3>
-<div class="paragraph">
-<p>The normal operation is to invoke the following actions:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>sendEvent</code></p>
-<div class="ulist">
-<ul>
-<li>
-<p><code>if(external) exitAction()</code></p>
-</li>
-<li>
-<p><code>action()</code></p>
-</li>
-<li>
-<p><code>if(external) entryAction()</code></p>
-</li>
-</ul>
-</div>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The exit action is chosen from one of:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>stateMap/whenState/onExit</code></p>
-</li>
-<li>
-<p><code>stateMap/whenState/default/onExit</code></p>
-</li>
-<li>
-<p><code>stateMap/default/onExit</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The action is chosen from one of:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>stateMap/whenState/onEvent</code></p>
-</li>
-<li>
-<p><code>stateMap/whenState/default/action</code></p>
-</li>
-<li>
-<p><code>stateMap/default/action</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The entry action is chosen from one of:</p>
-</div>
-<div class="ulist">
-<ul>
-<li>
-<p><code>stateMap/whenState/onEntry</code></p>
-</li>
-<li>
-<p><code>stateMap/whenState/default/onEntry</code></p>
-</li>
-<li>
-<p><code>stateMap/default/onEntry</code></p>
-</li>
-</ul>
-</div>
-<div class="paragraph">
-<p>The combination of current state and event determines a set of transition rules that have been applied to that combination by one or more definitions.
-If the transition rules contains guard transitions the guard expressions are evaluated until one evaluates <code>true</code>.
-The <code>onEntry</code> and <code>onExit</code> action are only invoked for <code>external</code> transitions.</p>
-</div>
-<div class="paragraph">
-<p>External transitions have an explicit target state defined.
-If the target state is not defined it is an internal transition.</p>
-</div>
-<div class="paragraph">
-<p>The currentState determines the exit action.
-The target state determines the entry action.</p>
-</div>
-</div>
-<div class="sect2">
-<h3 id="notes-on-concurrency-and-coroutines">Notes on concurrency and coroutines.</h3>
-<div class="paragraph">
-<p>The implementations of the AsyncTimer uses the provided <code>CoroutineScope</code> to <code>launch</code> the trigger after a <code>delay</code></p>
+<p>The escape handling of the packet reader can be a separate state map.
+The current implementation has a problem: the escaped byte must go into a different buffer.</p>
+</div>
+<div class="paragraph">
+<p>A state map could receive a different context from the main context.
+This context would be an interface or a class that shows only a part of the full context.
+In this example, the state map would receive <code>Block</code>.
+The state map adds the byte and then runs a pop transition.
+If the character is not valid, the state map still goes to the end state.</p>
 </div>
 </div>
 </div>
@@ -3771,7 +4097,7 @@ The target state determines the entry action.</p>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-10-23 17:06:09 +0200
+Last updated 2026-10-29 10:13:21 +0200
 </div>
 </div>
 <script src="prism.js"></script>
