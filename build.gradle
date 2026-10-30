@@ -10,7 +10,7 @@ plugins {
 def projectsFile = layout.projectDirectory.file('data/projects.json')
 def projectsData = new JsonSlurper()
         .parseText(providers.fileContents(projectsFile).asText.get())
-def allProjects = projectsData.projects
+def allProjects = projectsData.projects.toSorted { a,b -> a.group <=> b.group ?: a.name <=> b.name }
 def projectGroups = projectsData.groups ?: []
 // projects flagged "fetch": true have a <name>-doc artefact of the given "version" on GitHub Packages
 def fetchProjects = allProjects.findAll { it.fetch }
@@ -98,5 +98,8 @@ tasks.register('renderPages', Copy) {
         ])
     }
     into(layout.projectDirectory.dir('pages'))
+    doFirst {
+        logger.info("$path:allProjects${allProjects.collect {it.name}}")
+    }
 }
 

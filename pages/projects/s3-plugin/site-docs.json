@@ -1,0 +1,17 @@
+{
+    "name": "s3-plugin",
+    "group": "org.infosmid",
+    "version": "2.0.0",
+    "title": "Gradle S3 Plugin",
+    "summary": "Upload files to and download files from Amazon S3",
+    "license": "MIT",
+    "tags": [
+        "Gradle",
+        "Plugin",
+        "S3",
+        "AWS"
+    ],
+    "sourceUrl": "https://github.com/infosmid-org/s3-plugin",
+    "guide": "index.html",
+    "api": "api/index.html"
+}

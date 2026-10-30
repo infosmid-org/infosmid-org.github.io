@@ -20,6 +20,32 @@
       ]
     },
     {
+      "name": "s3-plugin",
+      "fetch": true,
+      "group": "Plugins",
+      "version": "2.0.0",
+      "license": "Apache-2.0",
+      "description": "Gradle plugin uploading and downloading files to S3",
+      "tags": [
+        "Gradle",
+        "Plugin",
+        "S3",
+        "AWS"
+      ],
+      "links": [
+        {
+          "type": "docs",
+          "label": "Documentation",
+          "url": "projects/s3-plugin/index.html"
+        },
+        {
+          "type": "github",
+          "label": "View on GitHub",
+          "url": "https://github.com/infosmid-org/s3-plugin"
+        }
+      ]
+    },
+    {
       "name": "skip-report-plugin",
       "fetch": true,
       "group": "Plugins",
