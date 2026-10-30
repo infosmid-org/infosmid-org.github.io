@@ -523,7 +523,7 @@ With this plugin you keep the overrides in <code>gradle.local.properties</code> 
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
-    id 'org.infosmid.plugins.local-properties' version '1.0.2-SNAPSHOT'
+    id 'org.infosmid.plugins.local-properties' version '1.0.2'
 }</code></pre>
 </div>
 </div>
@@ -533,7 +533,7 @@ With this plugin you keep the overrides in <code>gradle.local.properties</code> 
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
-    id("org.infosmid.plugins.local-properties") version "1.0.2-SNAPSHOT"
+    id("org.infosmid.plugins.local-properties") version "1.0.2"
 }</code></pre>
 </div>
 </div>
@@ -546,10 +546,10 @@ With this plugin you keep the overrides in <code>gradle.local.properties</code> 
 <div class="listingblock">
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-toml hljs" data-lang="toml">[versions]
-local-properties = "1.0.2-SNAPSHOT"
+local-properties = "1.0.2"
 
 [plugins]
-local-properties = { id = "org.infosmid.plugins.local-properties", version.ref = "local-properties" }</code></pre>
+infosmid-local-properties = { id = "org.infosmid.plugins.local-properties", version.ref = "local-properties" }</code></pre>
 </div>
 </div>
 <div class="paragraph">
@@ -559,7 +559,7 @@ local-properties = { id = "org.infosmid.plugins.local-properties", version.ref =
 <div class="title">Groovy DSL (<code>build.gradle</code>)</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-groovy hljs" data-lang="groovy">plugins {
-    alias(libs.plugins.local.properties)
+    alias(libs.plugins.infosmid.local.properties)
 }</code></pre>
 </div>
 </div>
@@ -567,7 +567,7 @@ local-properties = { id = "org.infosmid.plugins.local-properties", version.ref =
 <div class="title">Kotlin DSL (<code>build.gradle.kts</code>)</div>
 <div class="content">
 <pre class="highlightjs highlight"><code class="language-kotlin hljs" data-lang="kotlin">plugins {
-    alias(libs.plugins.local.properties)
+    alias(libs.plugins.infosmid.local.properties)
 }</code></pre>
 </div>
 </div>
@@ -679,7 +679,7 @@ featureX=true</code></pre>
 </div>
 <div id="footer">
 <div id="footer-text">
-Last updated 2026-10-28 11:39:48 +0200
+Last updated 2026-10-30 12:50:30 +0200
 </div>
 </div>
 <script src="https://cdnjs.cloudflare.com/ajax/libs/highlight.js/9.18.3/highlight.min.js"></script>
